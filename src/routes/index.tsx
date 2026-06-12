@@ -86,17 +86,17 @@ const NAV_LINKS = [
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#hero" className="flex items-center gap-2.5">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <a href="#hero" className="flex items-center gap-3">
           <img
             src={chadaMark.url}
             alt=""
             aria-hidden
-            className="h-8 w-auto"
-            width={48}
-            height={32}
+            className="h-12 w-auto md:h-14"
+            width={84}
+            height={56}
           />
-          <span className="font-display text-base font-bold tracking-tight">
+          <span className="font-display text-lg font-bold tracking-tight md:text-xl">
             Chada<span className="text-primary">.</span>
           </span>
         </a>
@@ -140,9 +140,9 @@ function Hero() {
           <img
             src={chadaLogo.url}
             alt="Chada Digital"
-            className="mx-auto mb-10 h-32 w-auto md:h-40"
-            width={500}
-            height={160}
+            className="mx-auto mb-10 h-48 w-auto md:h-64 lg:h-72"
+            width={800}
+            height={256}
           />
           <span className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Based in Lagos · Serving the World
