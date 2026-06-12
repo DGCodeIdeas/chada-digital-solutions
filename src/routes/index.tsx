@@ -14,7 +14,8 @@ import {
 } from "lucide-react";
 
 import { Toaster } from "@/components/ui/sonner";
-import chadaLogo from "@/assets/chada-logo.jpg.asset.json";
+import chadaLogo from "@/assets/chada-logo.png.asset.json";
+import chadaMark from "@/assets/chada-mark.png.asset.json";
 import portfolioFintech from "@/assets/portfolio-fintech.jpg";
 import portfolioEcommerce from "@/assets/portfolio-ecommerce.jpg";
 import aboutVisual from "@/assets/about-visual.jpg";
