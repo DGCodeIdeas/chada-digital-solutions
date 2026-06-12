@@ -140,9 +140,9 @@ function Hero() {
           <img
             src={chadaLogo.url}
             alt="Chada Digital"
-            className="mx-auto mb-10 h-32 w-auto md:h-40"
-            width={500}
-            height={160}
+            className="mx-auto mb-10 h-48 w-auto md:h-64 lg:h-72"
+            width={800}
+            height={256}
           />
           <span className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Based in Lagos · Serving the World
