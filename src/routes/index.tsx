@@ -87,12 +87,13 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#hero" className="flex items-center gap-2">
+        <a href="#hero" className="flex items-center gap-2.5">
           <img
-            src={chadaLogo.url}
-            alt="Chada Digital logo"
-            className="h-8 w-auto rounded-md"
-            width={80}
+            src={chadaMark.url}
+            alt=""
+            aria-hidden
+            className="h-8 w-auto"
+            width={48}
             height={32}
           />
           <span className="font-display text-base font-bold tracking-tight">
@@ -139,17 +140,17 @@ function Hero() {
           <img
             src={chadaLogo.url}
             alt="Chada Digital"
-            className="mx-auto mb-10 h-20 w-auto rounded-xl shadow-2xl shadow-primary/20 ring-1 ring-border/60"
-            width={300}
-            height={80}
+            className="mx-auto mb-10 h-32 w-auto md:h-40"
+            width={500}
+            height={160}
           />
           <span className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Based in Lagos · Serving the World
           </span>
-          <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-7xl">
-            Digital Solutions <br className="hidden md:inline" />
-            That <span className="text-primary">Scale Businesses</span>.
-          </h1>
+          <h1 className="sr-only">Chada Digital — Digital Solutions That Scale Businesses</h1>
+          <p className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+            Digital Solutions That <span className="text-primary">Scale Businesses</span>.
+          </p>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             We engineer high-performance websites, command-attention brands, and intelligent
             automation for ambitious teams across Nigeria and beyond.
