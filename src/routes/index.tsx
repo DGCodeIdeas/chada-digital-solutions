@@ -87,16 +87,16 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#hero" className="flex items-center gap-2.5">
+        <a href="#hero" className="flex items-center gap-3">
           <img
             src={chadaMark.url}
             alt=""
             aria-hidden
-            className="h-8 w-auto"
-            width={48}
-            height={32}
+            className="h-12 w-auto md:h-14"
+            width={84}
+            height={56}
           />
-          <span className="font-display text-base font-bold tracking-tight">
+          <span className="font-display text-lg font-bold tracking-tight md:text-xl">
             Chada<span className="text-primary">.</span>
           </span>
         </a>
