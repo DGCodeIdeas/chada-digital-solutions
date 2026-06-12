@@ -116,7 +116,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="hero" className="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <section id="hero" className="relative overflow-hidden px-6 pb-20 pt-10 md:pb-28 md:pt-16">
       {/* soft brand glows */}
       <div
         aria-hidden
@@ -132,22 +132,23 @@ function Hero() {
           <img
             src={chadaLogo.url}
             alt="Chada Digital"
-            className="mx-auto mb-10 h-72 w-auto md:h-96 lg:h-[28rem] drop-shadow-[0_0_60px_rgba(0,163,255,0.45)]"
-            width={1200}
-            height={384}
+            className="mx-auto mb-4 h-32 w-auto md:h-40 lg:h-48 drop-shadow-[0_0_40px_rgba(0,163,255,0.35)]"
+            width={600}
+            height={192}
           />
-          <span className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+          <span className="mb-5 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Based in Lagos · Serving the World
           </span>
           <h1 className="sr-only">Chada Digital — Digital Solutions That Scale Businesses</h1>
           <p className="font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground md:text-6xl">
             Digital Solutions That <span className="text-primary">Scale Businesses</span>.
           </p>
-          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
             We engineer high-performance websites, command-attention brands, and intelligent
             automation for ambitious teams across Nigeria and beyond.
           </p>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
+
             <a
               href="#contact"
               className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/30"
