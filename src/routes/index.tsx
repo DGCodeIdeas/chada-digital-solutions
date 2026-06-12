@@ -514,10 +514,11 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
         <div className="flex items-center gap-2">
           <img
-            src={chadaLogo.url}
-            alt="Chada Digital"
-            className="h-7 w-auto rounded-md"
-            width={70}
+            src={chadaMark.url}
+            alt=""
+            aria-hidden
+            className="h-7 w-auto"
+            width={42}
             height={28}
           />
           <span className="font-display text-sm font-bold tracking-tight">
