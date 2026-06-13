@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 
 import { Toaster } from "@/components/ui/sonner";
-import chadaLogo from "@/assets/chada-logo.png.asset.json";
+import chadaLogo from "@/assets/chada-logo-horizontal.png.asset.json";
 import chadaMark from "@/assets/chada-mark.png.asset.json";
 import heroDevices from "@/assets/hero-devices.jpg";
 import projectRealestate from "@/assets/project-realestate.jpg";
@@ -100,8 +100,8 @@ const NAV_LINKS = [
 
 function Logo({ className = "h-10" }: { className?: string }) {
   return (
-    <a href="#hero" className="flex items-center gap-3">
-      <img src={chadaLogo.url} alt="Chada Digital" className={`${className} w-auto`} />
+    <a href="#hero" className="inline-flex items-center">
+      <img src={chadaLogo.url} alt="Chada Digital — Digital Solutions That Scale Businesses" className={`${className} w-auto object-contain`} />
     </a>
   );
 }
@@ -111,7 +111,7 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/85 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-6">
-        <Logo className="h-10 md:h-11" />
+        <Logo className="h-12 md:h-14" />
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((l) => (
             <a
@@ -596,7 +596,7 @@ function Footer() {
     <footer className="border-t border-border/40 bg-card/30 px-6 pt-16 pb-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <Logo className="h-10" />
+          <Logo className="h-14" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Digital solutions that help businesses grow, automate, and scale.
           </p>
