@@ -100,8 +100,8 @@ const NAV_LINKS = [
 
 function Logo({ className = "h-10" }: { className?: string }) {
   return (
-    <a href="#hero" className="flex items-center gap-3">
-      <img src={chadaLogo.url} alt="Chada Digital" className={`${className} w-auto`} />
+    <a href="#hero" className="inline-flex items-center">
+      <img src={chadaLogo.url} alt="Chada Digital — Digital Solutions That Scale Businesses" className={`${className} w-auto object-contain`} />
     </a>
   );
 }
