@@ -596,7 +596,7 @@ function Footer() {
     <footer className="border-t border-border/40 bg-card/30 px-6 pt-16 pb-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
-          <Logo className="h-10" />
+          <Logo className="h-14" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
             Digital solutions that help businesses grow, automate, and scale.
           </p>
