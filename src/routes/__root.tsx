@@ -87,6 +87,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Chada Digital" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Chada Digital — Digital Solutions That Scale Businesses" },
+      { name: "twitter:title", content: "Chada Digital — Digital Solutions That Scale Businesses" },
+      { name: "description", content: "Chada Digital Solutions provides comprehensive digital and automation solutions for businesses." },
+      { property: "og:description", content: "Chada Digital Solutions provides comprehensive digital and automation solutions for businesses." },
+      { name: "twitter:description", content: "Chada Digital Solutions provides comprehensive digital and automation solutions for businesses." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd7fda2f-1b81-4df5-94cd-45082369f7f4/id-preview-92e6faf5--38752f84-8522-4c46-9c58-4ef58c13f005.lovable.app-1781360561452.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/dd7fda2f-1b81-4df5-94cd-45082369f7f4/id-preview-92e6faf5--38752f84-8522-4c46-9c58-4ef58c13f005.lovable.app-1781360561452.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
