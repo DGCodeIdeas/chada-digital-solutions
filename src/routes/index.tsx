@@ -218,13 +218,19 @@ function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-8 rounded-[3rem] bg-primary/10 blur-3xl" aria-hidden />
+          <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" aria-hidden />
           <img
             src={heroDevices}
             alt="Chada Digital website shown on laptop and phone"
-            className="relative w-full"
+            className="relative w-full mix-blend-screen"
             width={1280}
             height={960}
+            style={{
+              WebkitMaskImage:
+                "radial-gradient(ellipse 70% 65% at 50% 50%, #000 45%, rgba(0,0,0,0.6) 65%, transparent 88%)",
+              maskImage:
+                "radial-gradient(ellipse 70% 65% at 50% 50%, #000 45%, rgba(0,0,0,0.6) 65%, transparent 88%)",
+            }}
           />
         </div>
       </div>
