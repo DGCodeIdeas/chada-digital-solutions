@@ -36,9 +36,11 @@ import projectFintech from "@/assets/project-fintech.jpg";
 import projectCorporate from "@/assets/project-corporate.jpg";
 import projectFood from "@/assets/project-food.jpg";
 
+const SITE_URL = "https://chadadigital.lovable.app";
 const SITE_TITLE = "Chada Digital — Digital Solutions That Scale Businesses";
 const SITE_DESC =
   "Chada Digital builds high-performance websites, brand identities, and intelligent automation that scale ambitious businesses across Nigeria and beyond.";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,8 +50,17 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: "Chada Digital — Digital Solutions That Scale Businesses" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: SITE_URL }],
     scripts: [
       {
         type: "application/ld+json",
@@ -57,6 +68,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Chada Digital",
+          url: SITE_URL,
+          logo: `${SITE_URL}/og-image.jpg`,
           description: SITE_DESC,
           slogan: "Digital Solutions That Scale Businesses",
           address: { "@type": "PostalAddress", addressLocality: "Lagos", addressCountry: "NG" },
@@ -67,6 +80,7 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
 
 function Index() {
   return (
