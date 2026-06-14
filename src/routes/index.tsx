@@ -174,7 +174,7 @@ function Hero() {
       <div aria-hidden className="pointer-events-none absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[140px]" />
       <div aria-hidden className="pointer-events-none absolute -right-32 top-32 h-[520px] w-[520px] rounded-full bg-primary/15 blur-[160px]" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <div>
           <span className="mb-5 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Based in Lagos · Serving the World
@@ -217,7 +217,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative hidden lg:block">
           <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" aria-hidden />
           <img
             src={heroDevices}
