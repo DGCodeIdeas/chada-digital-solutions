@@ -217,7 +217,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative hidden lg:block">
           <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" aria-hidden />
           <img
             src={heroDevices}
