@@ -416,7 +416,7 @@ const PRODUCTS = [
     color: "from-sky-500 to-primary",
     title: "Business Automation Systems",
     body: "Custom automation workflows that reduce manual work, save time, and help your business operate efficiently.",
-    cta: "Learn More",
+    cta: "Discover our automation solutions",
   },
 ];
 
