@@ -1,0 +1,9 @@
+# Chada Digital
+
+> Nigerian digital agency building web development, branding, and automation solutions that scale ambitious businesses.
+
+Chada Digital partners with founders and growing teams to design, build, and automate the digital systems behind their business — from brand identity and websites to custom workflow tools.
+
+## Pages
+
+- [Home](/): Overview of services, products, and how Chada Digital helps businesses grow, automate, and scale.

@@ -311,7 +311,7 @@ function Services() {
               <h3 className="font-display text-lg font-bold tracking-tight">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               <a href="#contact" className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                Learn More <ArrowRight className="size-3" />
+                Explore our {s.title.toLowerCase()} services <ArrowRight className="size-3" />
               </a>
             </article>
           ))}
@@ -348,7 +348,7 @@ function WhyUs() {
               <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
                 <r.icon className="size-5" strokeWidth={1.75} />
               </div>
-              <h4 className="font-display text-base font-bold">{r.title}</h4>
+              <h3 className="font-display text-base font-bold">{r.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
             </div>
           ))}
@@ -409,14 +409,14 @@ const PRODUCTS = [
     color: "from-violet-500 to-fuchsia-500",
     title: "AI CV Builder",
     body: "Create professional, ATS-friendly CVs in minutes. Stand out and land more opportunities.",
-    cta: "Try Now",
+    cta: "Try the AI CV Builder",
   },
   {
     icon: Cog,
     color: "from-sky-500 to-primary",
     title: "Business Automation Systems",
     body: "Custom automation workflows that reduce manual work, save time, and help your business operate efficiently.",
-    cta: "Learn More",
+    cta: "Discover our automation solutions",
   },
 ];
 
@@ -630,7 +630,7 @@ function Footer() {
         </div>
         {FOOTER_COLS.map((col) => (
           <div key={col.title}>
-            <h4 className="font-display text-sm font-bold">{col.title}</h4>
+            <h3 className="font-display text-sm font-bold">{col.title}</h3>
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l}>
@@ -641,7 +641,7 @@ function Footer() {
           </div>
         ))}
         <div>
-          <h4 className="font-display text-sm font-bold">Let's Talk</h4>
+          <h3 className="font-display text-sm font-bold">Let's Talk</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> hello@chadadigital.com</li>
             <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> +234 815 123 4567</li>
