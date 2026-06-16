@@ -630,7 +630,7 @@ function Footer() {
         </div>
         {FOOTER_COLS.map((col) => (
           <div key={col.title}>
-            <h4 className="font-display text-sm font-bold">{col.title}</h4>
+            <h3 className="font-display text-sm font-bold">{col.title}</h3>
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l}>
