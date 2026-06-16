@@ -311,7 +311,7 @@ function Services() {
               <h3 className="font-display text-lg font-bold tracking-tight">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               <a href="#contact" className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary">
-                Learn More <ArrowRight className="size-3" />
+                Explore our {s.title.toLowerCase()} services <ArrowRight className="size-3" />
               </a>
             </article>
           ))}
