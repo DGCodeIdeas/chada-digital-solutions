@@ -28,8 +28,8 @@ import {
 } from "lucide-react";
 
 import { Toaster } from "@/components/ui/sonner";
-import chadaLogo from "@/assets/chada-logo-horizontal.png.asset.json";
-import chadaMark from "@/assets/chada-mark.png.asset.json";
+const CHADA_LOGO = "/chada-logo-horizontal.png";
+const CHADA_MARK = "/chada-mark.png";
 import heroDevices from "@/assets/hero-devices.jpg";
 import projectRealestate from "@/assets/project-realestate.jpg";
 import projectFintech from "@/assets/project-fintech.jpg";
@@ -115,7 +115,7 @@ const NAV_LINKS = [
 function Logo({ className = "h-10" }: { className?: string }) {
   return (
     <a href="#hero" className="inline-flex items-center">
-      <img src={chadaLogo.url} alt="Chada Digital — Digital Solutions That Scale Businesses" className={`${className} w-auto object-contain`} />
+      <img src={CHADA_LOGO} alt="Chada Digital — Digital Solutions That Scale Businesses" className={`${className} w-auto object-contain`} />
     </a>
   );
 }
@@ -653,7 +653,7 @@ function Footer() {
         <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
           © {new Date().getFullYear()} Chada Digital · All rights reserved
         </p>
-        <img src={chadaMark.url} alt="" aria-hidden className="h-6 w-auto opacity-60" />
+        <img src={CHADA_MARK} alt="" aria-hidden className="h-6 w-auto opacity-60" />
       </div>
     </footer>
   );
