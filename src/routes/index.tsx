@@ -409,7 +409,7 @@ const PRODUCTS = [
     color: "from-violet-500 to-fuchsia-500",
     title: "AI CV Builder",
     body: "Create professional, ATS-friendly CVs in minutes. Stand out and land more opportunities.",
-    cta: "Try Now",
+    cta: "Try the AI CV Builder",
   },
   {
     icon: Cog,
