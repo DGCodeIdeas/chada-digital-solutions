@@ -641,7 +641,7 @@ function Footer() {
           </div>
         ))}
         <div>
-          <h4 className="font-display text-sm font-bold">Let's Talk</h4>
+          <h3 className="font-display text-sm font-bold">Let's Talk</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> hello@chadadigital.com</li>
             <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> +234 815 123 4567</li>
