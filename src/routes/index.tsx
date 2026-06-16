@@ -348,7 +348,7 @@ function WhyUs() {
               <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary">
                 <r.icon className="size-5" strokeWidth={1.75} />
               </div>
-              <h4 className="font-display text-base font-bold">{r.title}</h4>
+              <h3 className="font-display text-base font-bold">{r.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.body}</p>
             </div>
           ))}
