@@ -14,9 +14,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 //   Vercel auto-detects this — no `vercel.json` required. The default
 //   TanStack Start Node server entry is used (the Workers entry override is
 //   only applied in the Lovable build).
-const isLovableBuild = Boolean(
-  process.env.DEV_SERVER__PROJECT_PATH || process.env.LOVABLE_SANDBOX,
-);
+const isLovableBuild = Boolean(process.env.DEV_SERVER__PROJECT_PATH || process.env.LOVABLE_SANDBOX);
 
 export default defineConfig({
   tanstackStart: isLovableBuild

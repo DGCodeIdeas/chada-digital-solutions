@@ -12,7 +12,7 @@ works out of the box — no `vercel.json` required.
 4. Build & Output Settings — leave defaults:
    - Install Command: `bun install` (or `npm install`)
    - Build Command: `bun run build` (or `npm run build`)
-   - Output Directory: *(leave empty — Nitro writes `.vercel/output/`)*
+   - Output Directory: _(leave empty — Nitro writes `.vercel/output/`)_
 5. Add any environment variables your app needs (anything you reference via
    `process.env.*` in server functions, and `VITE_*` for the client).
 6. Click **Deploy**.

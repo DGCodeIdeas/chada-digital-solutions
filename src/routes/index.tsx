@@ -54,7 +54,10 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "Chada Digital — Digital Solutions That Scale Businesses" },
+      {
+        property: "og:image:alt",
+        content: "Chada Digital — Digital Solutions That Scale Businesses",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: SITE_TITLE },
       { name: "twitter:description", content: SITE_DESC },
@@ -80,7 +83,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
 
 function Index() {
   return (
@@ -115,7 +117,11 @@ const NAV_LINKS = [
 function Logo({ className = "h-10" }: { className?: string }) {
   return (
     <a href="#hero" className="inline-flex items-center">
-      <img src={CHADA_LOGO} alt="Chada Digital — Digital Solutions That Scale Businesses" className={`${className} w-auto object-contain`} />
+      <img
+        src={CHADA_LOGO}
+        alt="Chada Digital — Digital Solutions That Scale Businesses"
+        className={`${className} w-auto object-contain`}
+      />
     </a>
   );
 }
@@ -185,8 +191,14 @@ function Nav() {
 function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden px-6 pb-20 pt-12 md:pt-20">
-      <div aria-hidden className="pointer-events-none absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[140px]" />
-      <div aria-hidden className="pointer-events-none absolute -right-32 top-32 h-[520px] w-[520px] rounded-full bg-primary/15 blur-[160px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-10 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[140px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 top-32 h-[520px] w-[520px] rounded-full bg-primary/15 blur-[160px]"
+      />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <div>
@@ -206,7 +218,8 @@ function Hero() {
               href="#contact"
               className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30"
             >
-              Start a Project <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              Start a Project{" "}
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#portfolio"
@@ -226,7 +239,8 @@ function Hero() {
               ))}
             </div>
             <p className="text-xs leading-tight text-muted-foreground">
-              Trusted by startups, SMEs &<br />growing brands across industries.
+              Trusted by startups, SMEs &<br />
+              growing brands across industries.
             </p>
           </div>
         </div>
@@ -256,7 +270,11 @@ const AUDIENCES = [
   { icon: Rocket, title: "Startups", body: "Helping startups build a strong digital foundation." },
   { icon: Briefcase, title: "SMEs", body: "Digital systems that improve efficiency and growth." },
   { icon: Users, title: "Agencies", body: "White-label solutions and reliable tech partnerships." },
-  { icon: LineChart, title: "Growing Brands", body: "Scalable solutions for brands ready to expand." },
+  {
+    icon: LineChart,
+    title: "Growing Brands",
+    body: "Scalable solutions for brands ready to expand.",
+  },
 ];
 
 function TrustedFor() {
@@ -273,7 +291,9 @@ function TrustedFor() {
                 <a.icon className="size-6" strokeWidth={1.75} />
               </div>
               <h3 className="font-display text-base font-bold">{a.title}</h3>
-              <p className="mt-2 max-w-[14rem] text-xs leading-relaxed text-muted-foreground">{a.body}</p>
+              <p className="mt-2 max-w-[14rem] text-xs leading-relaxed text-muted-foreground">
+                {a.body}
+              </p>
             </div>
           ))}
         </div>
@@ -283,10 +303,26 @@ function TrustedFor() {
 }
 
 const SERVICES = [
-  { icon: Code2, title: "Web Development", body: "High-performance websites built for speed, SEO, and conversions." },
-  { icon: Palette, title: "Brand Identity", body: "Logos, brand systems, and visual identities that make businesses memorable." },
-  { icon: Settings, title: "Automation Solutions", body: "Streamline repetitive tasks and improve efficiency with smart workflows." },
-  { icon: TrendingUp, title: "Digital Strategy", body: "Technology-driven strategies that help businesses scale sustainably." },
+  {
+    icon: Code2,
+    title: "Web Development",
+    body: "High-performance websites built for speed, SEO, and conversions.",
+  },
+  {
+    icon: Palette,
+    title: "Brand Identity",
+    body: "Logos, brand systems, and visual identities that make businesses memorable.",
+  },
+  {
+    icon: Settings,
+    title: "Automation Solutions",
+    body: "Streamline repetitive tasks and improve efficiency with smart workflows.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Digital Strategy",
+    body: "Technology-driven strategies that help businesses scale sustainably.",
+  },
 ];
 
 function Services() {
@@ -294,7 +330,9 @@ function Services() {
     <section id="services" className="px-6 py-20 md:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">What We Do</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            What We Do
+          </span>
           <h2 className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">
             Services That Drive Real Results
           </h2>
@@ -310,7 +348,10 @@ function Services() {
               </div>
               <h3 className="font-display text-lg font-bold tracking-tight">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
-              <a href="#contact" className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              <a
+                href="#contact"
+                className="mt-5 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary"
+              >
                 Explore our {s.title.toLowerCase()} services <ArrowRight className="size-3" />
               </a>
             </article>
@@ -322,10 +363,26 @@ function Services() {
 }
 
 const REASONS = [
-  { icon: Target, title: "Results-Driven", body: "We focus on solutions that drive measurable growth." },
-  { icon: ShieldCheck, title: "Modern & Reliable", body: "We use the latest technology to build future-ready solutions." },
-  { icon: Heart, title: "Client-Centered", body: "Your goals are at the center of everything we do." },
-  { icon: Headphones, title: "Support That Cares", body: "We're with you, even after the project is done." },
+  {
+    icon: Target,
+    title: "Results-Driven",
+    body: "We focus on solutions that drive measurable growth.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Modern & Reliable",
+    body: "We use the latest technology to build future-ready solutions.",
+  },
+  {
+    icon: Heart,
+    title: "Client-Centered",
+    body: "Your goals are at the center of everything we do.",
+  },
+  {
+    icon: Headphones,
+    title: "Support That Cares",
+    body: "We're with you, even after the project is done.",
+  },
 ];
 
 function WhyUs() {
@@ -371,12 +428,17 @@ function Portfolio() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Our Work</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Our Work
+            </span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight md:text-5xl">
               Featured Projects
             </h2>
           </div>
-          <a href="#contact" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary"
+          >
             View All Projects <ArrowRight className="size-3.5" />
           </a>
         </div>
@@ -438,13 +500,18 @@ function Products() {
               key={p.title}
               className="flex items-start gap-5 rounded-2xl border border-border bg-background p-7"
             >
-              <div className={`flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${p.color} text-white`}>
+              <div
+                className={`flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${p.color} text-white`}
+              >
                 <p.icon className="size-7" strokeWidth={1.75} />
               </div>
               <div className="min-w-0">
                 <h3 className="font-display text-lg font-bold tracking-tight">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-                <a href="#contact" className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                <a
+                  href="#contact"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-primary"
+                >
                   {p.cta} <ArrowRight className="size-3" />
                 </a>
               </div>
@@ -492,7 +559,10 @@ function CtaBanner() {
   return (
     <section className="px-6 pb-20">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/20 via-card to-card p-8 md:p-12">
-        <div aria-hidden className="pointer-events-none absolute -right-20 top-0 h-full w-1/2 bg-gradient-to-l from-primary/30 to-transparent blur-3xl" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 top-0 h-full w-1/2 bg-gradient-to-l from-primary/30 to-transparent blur-3xl"
+        />
         <div className="relative grid items-center gap-6 md:grid-cols-[1fr_auto]">
           <div>
             <h3 className="font-display text-2xl font-bold tracking-tight md:text-4xl">
@@ -516,7 +586,12 @@ function CtaBanner() {
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", service: "Web Development", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    service: "Web Development",
+    message: "",
+  });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -535,20 +610,33 @@ function Contact() {
     <section id="contact" className="border-t border-border/40 px-6 py-20 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Contact</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+            Contact
+          </span>
           <h2 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
             Let's build <br /> something that scales.
           </h2>
           <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-            <div className="flex items-center gap-3"><Mail className="size-4 text-primary" /> hello@chadadigital.com</div>
-            <div className="flex items-center gap-3"><Phone className="size-4 text-primary" /> +234 815 123 4567</div>
-            <div className="flex items-center gap-3"><MapPin className="size-4 text-primary" /> Lagos, Nigeria</div>
+            <div className="flex items-center gap-3">
+              <Mail className="size-4 text-primary" /> hello@chadadigital.com
+            </div>
+            <div className="flex items-center gap-3">
+              <Phone className="size-4 text-primary" /> +234 815 123 4567
+            </div>
+            <div className="flex items-center gap-3">
+              <MapPin className="size-4 text-primary" /> Lagos, Nigeria
+            </div>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="space-y-6 rounded-2xl border border-border bg-card p-7 md:p-9">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 rounded-2xl border border-border bg-card p-7 md:p-9"
+        >
           <Field label="Full Name">
             <input
-              type="text" required value={form.name}
+              type="text"
+              required
+              value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               placeholder="Adaeze Okafor"
               className="w-full border-b border-border bg-transparent py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
@@ -556,7 +644,9 @@ function Contact() {
           </Field>
           <Field label="Email Address">
             <input
-              type="email" required value={form.email}
+              type="email"
+              required
+              value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               placeholder="you@company.com"
               className="w-full border-b border-border bg-transparent py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
@@ -576,14 +666,17 @@ function Contact() {
           </Field>
           <Field label="Project Scope">
             <textarea
-              required rows={4} value={form.message}
+              required
+              rows={4}
+              value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder="Tell us a bit about what you're building…"
               className="w-full resize-none border-b border-border bg-transparent py-3 text-sm placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
             />
           </Field>
           <button
-            type="submit" disabled={submitting}
+            type="submit"
+            disabled={submitting}
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30 disabled:opacity-60"
           >
             {submitting ? "Sending…" : "Send Inquiry"} <ArrowRight className="size-4" />
@@ -622,7 +715,12 @@ function Footer() {
           </p>
           <div className="mt-5 flex gap-3">
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-              <a key={i} href="#" aria-label="Social link" className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+              <a
+                key={i}
+                href="#"
+                aria-label="Social link"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+              >
                 <Icon className="size-4" />
               </a>
             ))}
@@ -634,7 +732,12 @@ function Footer() {
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l}>
-                  <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{l}</a>
+                  <a
+                    href="#"
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {l}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -643,9 +746,15 @@ function Footer() {
         <div>
           <h3 className="font-display text-sm font-bold">Let's Talk</h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> hello@chadadigital.com</li>
-            <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> +234 815 123 4567</li>
-            <li className="flex items-center gap-2"><MapPin className="size-4 text-primary" /> Lagos, Nigeria</li>
+            <li className="flex items-center gap-2">
+              <Mail className="size-4 text-primary" /> hello@chadadigital.com
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="size-4 text-primary" /> +234 815 123 4567
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="size-4 text-primary" /> Lagos, Nigeria
+            </li>
           </ul>
         </div>
       </div>
