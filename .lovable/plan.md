@@ -1,38 +1,57 @@
+## Build a working corporate-site demo and feature it
 
-## Chada Digital — Single-Page Landing
+I'll build a full multi-page **corporate/business** demo for a fictional client — **Sterling & Vale Construction**, a Lagos-based construction firm — hosted inside this project under `/demos/sterling-vale/*`, and add it as a new card in the home page's Featured Projects grid that opens the live demo in a new tab.
 
-The user supplied a specific design direction (soft-dark palette, brand logo, tagline "Digital Solutions That Scale Businesses"), so I'll build directly using the v1 "Digital tech noir" composition retuned to their palette — no further direction selection needed.
+### Why a construction firm
+Best fit for the corporate template: image-led hero, services grid, project case studies, testimonials, contact — all without needing a backend. Brand will feel distinct from Chada (warm concrete + amber palette, serif display) so it reads as a real client, not a Chada clone.
 
-### Sections (in order, anchored)
-1. **Hero** — Logo + "CHADA DIGITAL" wordmark, tagline "Digital Solutions That Scale Businesses", single CTA "Start a Project" (electric blue), soft blue glow background.
-2. **About** — Two-column: image-side visual + Chada ethos copy (Nigerian agency, global standards).
-3. **Services** — 3 cards: Web Development, Branding & Design, Automation. Card bg #16223F, electric-blue icons.
-4. **Portfolio** — 2 staggered project cards with generated visuals + project name/category.
-5. **Why Choose Us** — 3–4 reasons (Hyper-Efficiency, Local Nuance, Technical Rigor, Transparent Process) in left column + soft glow accent right column.
-6. **Contact / Lead Form** — Name, Email, Service Interest (select), Message, Submit. Frontend-only (form shows success toast); no backend wiring in this pass.
+### Routes to add
+```text
+src/routes/demos/sterling-vale.tsx              -> /demos/sterling-vale  (layout: header + outlet + footer)
+src/routes/demos/sterling-vale.index.tsx        -> /demos/sterling-vale            (Home)
+src/routes/demos/sterling-vale.about.tsx        -> /demos/sterling-vale/about      (About)
+src/routes/demos/sterling-vale.services.tsx     -> /demos/sterling-vale/services   (Services)
+src/routes/demos/sterling-vale.projects.tsx     -> /demos/sterling-vale/projects   (Past Projects)
+src/routes/demos/sterling-vale.contact.tsx      -> /demos/sterling-vale/contact    (Contact form — frontend-only, toast on submit)
+```
 
-Sticky top nav with anchor links (Services, Work, Contact) and minimal footer.
+Each route gets its own `head()` with unique title + meta description + og tags. A small "Demo built by Chada Digital" ribbon links back to `/`.
 
-### Design tokens (locked from user)
-- `--background`: #0D1527
-- `--card`: #16223F
-- `--primary` (electric blue): #00A3FF
-- `--foreground` (soft white): #E2E8F0
-- `--muted-foreground` (slate): #94A3B8
-- Soft radial blue glows (20% opacity, heavy blur) behind hero and contact sections.
-- No pure black/white anywhere.
-- Fonts: Outfit (display) + Inter (body), loaded via `<link>` in `__root.tsx`.
+### Sections per page
+- **Home** — Hero (tagline "Building Nigeria's Skyline, One Project at a Time" + CTA), services teaser (3 cards), stats strip (250+ projects, 18 yrs, 40 engineers), 2 featured project cards, testimonial, CTA band.
+- **About** — Company story, mission/values, leadership cards (3 fictional execs with generated portraits), timeline 2007 → 2026.
+- **Services** — 6 services: Commercial Construction, Residential Builds, Civil Engineering, Renovation, Project Management, MEP. Each with icon + description.
+- **Projects** — 6 case-study cards (generated images) with name, location, sector, year.
+- **Contact** — Form (name, email, phone, project type, message) → `sonner` toast on submit; office address, phone, business hours.
 
-### Technical plan
-- Replace `src/routes/index.tsx` with the full landing composition (sectioned components inline or split into `src/components/landing/*`).
-- Update `src/styles.css` `:root` (and `.dark`) tokens to the new palette; map fonts in `@theme inline`.
-- Add font `<link>` tags to `src/routes/__root.tsx` head.
-- Register logo as a Lovable Asset (no binary in repo): `lovable-assets create --file /mnt/user-uploads/IMG-20260612-WA0016_1.jpg` → import JSON pointer for the hero logo.
-- Generate 2 portfolio thumbnails + 1 hero ambient visual via imagegen (saved to `src/assets/`).
-- Contact form: local React state + sonner toast on submit (no DB).
-- SEO: per-route `head()` with title "Chada Digital — Digital Solutions That Scale Businesses", matching description, og tags, relative canonical, Organization JSON-LD.
+### Design tokens (scoped to the demo)
+Add a `.theme-sterling` class on the demo layout root that overrides the existing CSS variables locally — no changes to Chada's global tokens. Palette:
+- bg `#F5F1EA` (warm concrete), surface `#FFFFFF`, foreground `#1C1A17`
+- primary `#C2410C` (burnt amber), accent `#0F3A2E` (deep forest)
+- display font Playfair Display, body Inter (loaded via `<link>` in `__root.tsx` alongside existing fonts)
 
-### Out of scope (ask later if needed)
-- Backend storage for lead form (would need Lovable Cloud).
-- Multi-page routes — single page only.
-- Testimonials, pricing, blog.
+### Featured Projects integration
+In `src/routes/index.tsx`:
+- Generate one new project thumbnail `src/assets/project-sterling.jpg` (modern construction site / skyline render).
+- Append to `PROJECTS`:
+  ```ts
+  { image: projectSterling, name: "Sterling & Vale", category: "Construction Firm — Live Demo", href: "/demos/sterling-vale" }
+  ```
+- Update the `Portfolio` card: when `href` is present, wrap the card in a `<Link to={href} target="_blank">` with a small "Live demo ↗" badge overlay so visitors immediately see this one is clickable. Existing 4 cards keep their current static behavior.
+- Grid stays `lg:grid-cols-4`; on `xl` it becomes `xl:grid-cols-5` so the row fits 5 cards on wide screens and wraps cleanly below.
+
+### Images
+Generate with `imagegen` (fast tier, .jpg) into `src/assets/sterling/`:
+- `hero.jpg` — construction crew on a high-rise rooftop at golden hour
+- `about.jpg` — leadership team on a project site
+- 3 leadership portraits
+- 6 project thumbnails (tower, residential estate, bridge, mall, factory, school)
+- plus the `project-sterling.jpg` Featured Projects thumbnail
+
+### Out of scope (ask if needed)
+- Backend lead capture for the demo's contact form (would need Lovable Cloud)
+- Multilingual content, blog, careers page
+- Replacing any of the existing 4 portfolio entries — only appending
+
+### Verification
+After build, navigate the preview to `/demos/sterling-vale`, click through all 5 nav links, submit the contact form, and confirm the Featured Projects card on `/` opens the demo in a new tab.
