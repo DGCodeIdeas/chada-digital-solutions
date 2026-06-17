@@ -46,7 +46,7 @@ export function SterlingShell({ children }: { children?: ReactNode }) {
             {NAV.map((l) => (
               <Link
                 key={l.to}
-                to={l.to}
+                to={l.to as any}
                 activeOptions={{ exact: l.exact }}
                 activeProps={{ className: "text-[#C2410C]" }}
                 className="text-sm font-medium text-[#1C1A17]/70 transition-colors hover:text-[#1C1A17]"
@@ -75,7 +75,7 @@ export function SterlingShell({ children }: { children?: ReactNode }) {
               {NAV.map((l) => (
                 <Link
                   key={l.to}
-                  to={l.to}
+                  to={l.to as any}
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: l.exact }}
                   activeProps={{ className: "text-[#C2410C]" }}
