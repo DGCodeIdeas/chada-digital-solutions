@@ -2,13 +2,13 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, ArrowRight, Building2, Phone, Mail, MapPin } from "lucide-react";
 
-const NAV = [
+const NAV: { to: string; label: string; exact?: boolean }[] = [
   { to: "/demos/sterling-vale", label: "Home", exact: true },
   { to: "/demos/sterling-vale/about", label: "About" },
   { to: "/demos/sterling-vale/services", label: "Services" },
   { to: "/demos/sterling-vale/projects", label: "Projects" },
   { to: "/demos/sterling-vale/contact", label: "Contact" },
-] as const;
+];
 
 export function SterlingShell({ children }: { children?: ReactNode }) {
   const [open, setOpen] = useState(false);
