@@ -406,7 +406,7 @@ function Portfolio() {
               </>
             );
             return p.href ? (
-              <Link key={p.name} to={p.href} target="_blank" rel="noopener" className="group block">
+              <Link key={p.name} to={p.href as any} target="_blank" rel="noopener" className="group block">
                 {inner}
               </Link>
             ) : (
