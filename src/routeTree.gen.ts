@@ -11,6 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemosSterlingValeRouteImport } from './routes/demos/sterling-vale'
+import { Route as DemosSterlingValeIndexRouteImport } from './routes/demos/sterling-vale.index'
+import { Route as DemosSterlingValeServicesRouteImport } from './routes/demos/sterling-vale.services'
+import { Route as DemosSterlingValeProjectsRouteImport } from './routes/demos/sterling-vale.projects'
+import { Route as DemosSterlingValeContactRouteImport } from './routes/demos/sterling-vale.contact'
+import { Route as DemosSterlingValeAboutRouteImport } from './routes/demos/sterling-vale.about'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +28,106 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemosSterlingValeRoute = DemosSterlingValeRouteImport.update({
+  id: '/demos/sterling-vale',
+  path: '/demos/sterling-vale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemosSterlingValeIndexRoute = DemosSterlingValeIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DemosSterlingValeRoute,
+} as any)
+const DemosSterlingValeServicesRoute =
+  DemosSterlingValeServicesRouteImport.update({
+    id: '/services',
+    path: '/services',
+    getParentRoute: () => DemosSterlingValeRoute,
+  } as any)
+const DemosSterlingValeProjectsRoute =
+  DemosSterlingValeProjectsRouteImport.update({
+    id: '/projects',
+    path: '/projects',
+    getParentRoute: () => DemosSterlingValeRoute,
+  } as any)
+const DemosSterlingValeContactRoute =
+  DemosSterlingValeContactRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => DemosSterlingValeRoute,
+  } as any)
+const DemosSterlingValeAboutRoute = DemosSterlingValeAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => DemosSterlingValeRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demos/sterling-vale': typeof DemosSterlingValeRouteWithChildren
+  '/demos/sterling-vale/about': typeof DemosSterlingValeAboutRoute
+  '/demos/sterling-vale/contact': typeof DemosSterlingValeContactRoute
+  '/demos/sterling-vale/projects': typeof DemosSterlingValeProjectsRoute
+  '/demos/sterling-vale/services': typeof DemosSterlingValeServicesRoute
+  '/demos/sterling-vale/': typeof DemosSterlingValeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demos/sterling-vale/about': typeof DemosSterlingValeAboutRoute
+  '/demos/sterling-vale/contact': typeof DemosSterlingValeContactRoute
+  '/demos/sterling-vale/projects': typeof DemosSterlingValeProjectsRoute
+  '/demos/sterling-vale/services': typeof DemosSterlingValeServicesRoute
+  '/demos/sterling-vale': typeof DemosSterlingValeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/demos/sterling-vale': typeof DemosSterlingValeRouteWithChildren
+  '/demos/sterling-vale/about': typeof DemosSterlingValeAboutRoute
+  '/demos/sterling-vale/contact': typeof DemosSterlingValeContactRoute
+  '/demos/sterling-vale/projects': typeof DemosSterlingValeProjectsRoute
+  '/demos/sterling-vale/services': typeof DemosSterlingValeServicesRoute
+  '/demos/sterling-vale/': typeof DemosSterlingValeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/demos/sterling-vale'
+    | '/demos/sterling-vale/about'
+    | '/demos/sterling-vale/contact'
+    | '/demos/sterling-vale/projects'
+    | '/demos/sterling-vale/services'
+    | '/demos/sterling-vale/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/demos/sterling-vale/about'
+    | '/demos/sterling-vale/contact'
+    | '/demos/sterling-vale/projects'
+    | '/demos/sterling-vale/services'
+    | '/demos/sterling-vale'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/demos/sterling-vale'
+    | '/demos/sterling-vale/about'
+    | '/demos/sterling-vale/contact'
+    | '/demos/sterling-vale/projects'
+    | '/demos/sterling-vale/services'
+    | '/demos/sterling-vale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  DemosSterlingValeRoute: typeof DemosSterlingValeRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +146,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demos/sterling-vale': {
+      id: '/demos/sterling-vale'
+      path: '/demos/sterling-vale'
+      fullPath: '/demos/sterling-vale'
+      preLoaderRoute: typeof DemosSterlingValeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demos/sterling-vale/': {
+      id: '/demos/sterling-vale/'
+      path: '/'
+      fullPath: '/demos/sterling-vale/'
+      preLoaderRoute: typeof DemosSterlingValeIndexRouteImport
+      parentRoute: typeof DemosSterlingValeRoute
+    }
+    '/demos/sterling-vale/services': {
+      id: '/demos/sterling-vale/services'
+      path: '/services'
+      fullPath: '/demos/sterling-vale/services'
+      preLoaderRoute: typeof DemosSterlingValeServicesRouteImport
+      parentRoute: typeof DemosSterlingValeRoute
+    }
+    '/demos/sterling-vale/projects': {
+      id: '/demos/sterling-vale/projects'
+      path: '/projects'
+      fullPath: '/demos/sterling-vale/projects'
+      preLoaderRoute: typeof DemosSterlingValeProjectsRouteImport
+      parentRoute: typeof DemosSterlingValeRoute
+    }
+    '/demos/sterling-vale/contact': {
+      id: '/demos/sterling-vale/contact'
+      path: '/contact'
+      fullPath: '/demos/sterling-vale/contact'
+      preLoaderRoute: typeof DemosSterlingValeContactRouteImport
+      parentRoute: typeof DemosSterlingValeRoute
+    }
+    '/demos/sterling-vale/about': {
+      id: '/demos/sterling-vale/about'
+      path: '/about'
+      fullPath: '/demos/sterling-vale/about'
+      preLoaderRoute: typeof DemosSterlingValeAboutRouteImport
+      parentRoute: typeof DemosSterlingValeRoute
+    }
   }
 }
+
+interface DemosSterlingValeRouteChildren {
+  DemosSterlingValeAboutRoute: typeof DemosSterlingValeAboutRoute
+  DemosSterlingValeContactRoute: typeof DemosSterlingValeContactRoute
+  DemosSterlingValeProjectsRoute: typeof DemosSterlingValeProjectsRoute
+  DemosSterlingValeServicesRoute: typeof DemosSterlingValeServicesRoute
+  DemosSterlingValeIndexRoute: typeof DemosSterlingValeIndexRoute
+}
+
+const DemosSterlingValeRouteChildren: DemosSterlingValeRouteChildren = {
+  DemosSterlingValeAboutRoute: DemosSterlingValeAboutRoute,
+  DemosSterlingValeContactRoute: DemosSterlingValeContactRoute,
+  DemosSterlingValeProjectsRoute: DemosSterlingValeProjectsRoute,
+  DemosSterlingValeServicesRoute: DemosSterlingValeServicesRoute,
+  DemosSterlingValeIndexRoute: DemosSterlingValeIndexRoute,
+}
+
+const DemosSterlingValeRouteWithChildren =
+  DemosSterlingValeRoute._addFileChildren(DemosSterlingValeRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  DemosSterlingValeRoute: DemosSterlingValeRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

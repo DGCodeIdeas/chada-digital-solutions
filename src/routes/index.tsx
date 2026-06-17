@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import {
@@ -35,6 +35,7 @@ import projectRealestate from "@/assets/project-realestate.jpg";
 import projectFintech from "@/assets/project-fintech.jpg";
 import projectCorporate from "@/assets/project-corporate.jpg";
 import projectFood from "@/assets/project-food.jpg";
+import projectSterling from "@/assets/project-sterling.jpg";
 
 const SITE_URL = "https://chadadigital.lovable.app";
 const SITE_TITLE = "Chada Digital — Digital Solutions That Scale Businesses";
@@ -358,7 +359,8 @@ function WhyUs() {
   );
 }
 
-const PROJECTS = [
+const PROJECTS: { image: string; name: string; category: string; href?: string }[] = [
+  { image: projectSterling, name: "Sterling & Vale", category: "Construction Firm — Live Demo", href: "/demos/sterling-vale" },
   { image: projectRealestate, name: "Veritas Homes", category: "Real Estate Website" },
   { image: projectFintech, name: "KudaClone", category: "Fintech Website" },
   { image: projectCorporate, name: "Brix & Stone", category: "Corporate Website" },
@@ -380,23 +382,39 @@ function Portfolio() {
             View All Projects <ArrowRight className="size-3.5" />
           </a>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PROJECTS.map((p) => (
-            <article key={p.name} className="group">
-              <div className="overflow-hidden rounded-xl border border-border bg-background">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                />
-              </div>
-              <h3 className="mt-4 font-display text-base font-bold tracking-tight">{p.name}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">{p.category}</p>
-            </article>
-          ))}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+          {PROJECTS.map((p) => {
+            const inner = (
+              <>
+                <div className="relative overflow-hidden rounded-xl border border-border bg-background">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                  />
+                  {p.href && (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary-foreground">
+                      Live demo ↗
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-4 font-display text-base font-bold tracking-tight">{p.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{p.category}</p>
+              </>
+            );
+            return p.href ? (
+              <Link key={p.name} to={p.href} target="_blank" rel="noopener" className="group block">
+                {inner}
+              </Link>
+            ) : (
+              <article key={p.name} className="group">
+                {inner}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
