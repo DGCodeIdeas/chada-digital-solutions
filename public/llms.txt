@@ -1,9 +1,29 @@
-# Chada Digital
+# Chada Digital - Technical Summary
 
-> Nigerian digital agency building web development, branding, and automation solutions that scale ambitious businesses.
+Chada Digital is a high-performance digital agency website and demo platform.
 
-Chada Digital partners with founders and growing teams to design, build, and automate the digital systems behind their business — from brand identity and websites to custom workflow tools.
+## Architecture & Tech Stack
+- **Framework:** TanStack Start (Beta) on React 19.
+- **Routing:** TanStack Router (type-safe, file-based).
+- **Styling:** Tailwind CSS 4.0 (@theme directives).
+- **State:** TanStack Query v5.
+- **Components:** Radix UI / shadcn/ui.
+- **Logic:** Server Functions (createServerFn) for type-safe backend ops.
 
-## Pages
+## Key Directories
+- \`src/routes/\`: File-based routing & page components.
+- \`src/routes/demos/\`: Isolated demo brand experiences (e.g., Sterling & Vale).
+- \`src/components/ui/\`: Reusable Radix-based UI primitives.
+- \`src/lib/api/\`: Server-side function definitions.
+- \`src/lib/config.server.ts\`: Server-only environment configuration.
 
-- [Home](/): Overview of services, products, and how Chada Digital helps businesses grow, automate, and scale.
+## Features
+- Full SSR with custom error recovery for h3 engine.
+- Multi-brand support with isolated design systems in sub-routes.
+- Automated sitemap generation at \`/sitemap.xml\`.
+- Type-safe end-to-end communication.
+
+## Development Patterns
+- Use \`createServerFn\` for any logic requiring secrets.
+- Use \`cn()\` utility for Tailwind class merging.
+- Follow Tailwind 4 CSS-first configuration in \`src/styles.css\`.
