@@ -37,7 +37,7 @@ import projectCorporate from "@/assets/project-corporate.jpg";
 import projectFood from "@/assets/project-food.jpg";
 import projectSterling from "@/assets/project-sterling.jpg";
 
-const SITE_URL = "https://chadadigital.lovable.app";
+const SITE_URL = "https://www.chadadigital.com";
 const SITE_TITLE = "Chada Digital — Digital Solutions That Scale Businesses";
 const SITE_DESC =
   "Chada Digital builds high-performance websites, brand identities, and intelligent automation that scale ambitious businesses across Nigeria and beyond.";
@@ -628,6 +628,14 @@ const FOOTER_COLS = [
   { title: "Company", links: ["Careers", "Privacy Policy", "Terms of Service"] },
   { title: "Support", links: ["Contact Us", "FAQ"] },
 ];
+ 
+const FOOTER_LINKS_MAP: Record<string, string> = {
+  "About Us": "#about",
+  "Services": "#services",
+  "Our Work": "#portfolio",
+  "Products": "#products",
+  "Contact Us": "#contact",
+};
 
 function Footer() {
   return (
@@ -652,7 +660,7 @@ function Footer() {
             <ul className="mt-4 space-y-3">
               {col.links.map((l) => (
                 <li key={l}>
-                  <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-foreground">{l}</a>
+                  <a href={FOOTER_LINKS_MAP[l] ?? "#"} className="text-sm text-muted-foreground transition-colors hover:text-foreground">{l}</a>
                 </li>
               ))}
             </ul>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chadadigital.lovable.app/sitemap.xml
+
+Sitemap: https://www.chadadigital.com/sitemap.xml
