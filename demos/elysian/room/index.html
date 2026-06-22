@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Room Details — ELYSIAN</title>
+  <meta name="description" content="Room details at ELYSIAN luxury hotel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="nav-header" id="nav-header">
+    <div class="nav-container">
+      <a href="../" class="logo">ELYSIAN</a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../">Home</a>
+        <a href="../rooms/">Rooms</a>
+        <a href="../rooms/">Dining</a>
+        <a href="../rooms/">Spa</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+      <a href="./" class="nav-cta">Book Now</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../">Home</a> <span>/</span> <a href="../rooms/">Rooms</a> <span>/</span> <span id="rd-name">Room</span>
+  </div>
+
+  <div class="room-detail" id="room-detail">
+    <div>
+      <div class="room-gallery" id="rd-gallery"></div>
+      <div class="room-detail-info" style="margin-top: 40px;">
+        <h2>About This Room</h2>
+        <p id="rd-desc"></p>
+        <div class="room-detail-amenities" id="rd-amenities"></div>
+      </div>
+    </div>
+    <div class="room-booking-card">
+      <h3 class="booking-card-title">Reserve This Room</h3>
+      <div class="booking-card-price">$<span id="rd-price">0</span> <span style="font-size:0.875rem;color:var(--text-muted);font-weight:400;">/ night</span></div>
+      <div class="booking-card-field">
+        <label>Check In</label>
+        <input type="date" id="rd-checkin" required />
+      </div>
+      <div class="booking-card-field">
+        <label>Check Out</label>
+        <input type="date" id="rd-checkout" required />
+      </div>
+      <div class="booking-card-field">
+        <label>Guests</label>
+        <select id="rd-guests" style="width:100%;padding:12px 16px;border:1px solid var(--border);font-family:var(--font-sans);font-size:0.875rem;">
+          <option>1 Guest</option>
+          <option selected>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4 Guests</option>
+        </select>
+      </div>
+      <div class="booking-card-total">
+        <span>Total</span>
+        <span id="rd-total">$0</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="rd-book" style="margin-top:16px;">Book Now</button>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 60px;">
+    <div class="footer-bottom" style="border: none; padding-top: 0;">
+      <p> ELYSIAN Demo. Built by <a href="https://chadadigital.com" style="color: var(--terracotta);">Chada Digital</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

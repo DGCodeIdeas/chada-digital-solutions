@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ApexFlow — AI-Powered Business Automation</title>
+  <meta name="description" content="ApexFlow automates your workflows with AI. From lead qualification to customer support, streamline operations and scale faster." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="nav-header" id="nav-header">
+    <div class="nav-container">
+      <a href="./" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L28 9v14L16 30 4 23V9l12-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M16 8l8 4.5v9L16 26l-8-4.5v-9L16 8z" fill="currentColor" opacity="0.3"/>
+            <circle cx="16" cy="17" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="logo-text">ApexFlow</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="./pricing/">Pricing</a>
+        <a href="./dashboard/">Dashboard Demo</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="./login/" class="btn btn-ghost">Sign In</a>
+        <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        <span>Now in Beta — Join 2,000+ early adopters</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="gradient-text">AI-Powered</span> Business Automation That Works While You Sleep
+      </h1>
+      <p class="hero-subtitle">ApexFlow intelligently automates your leads, support, and operations. Set it up once, watch it scale forever.</p>
+      <div class="hero-cta">
+        <a href="#waitlist" class="btn btn-large btn-primary">
+          Start Free Trial
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="./dashboard/" class="btn btn-large btn-ghost">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          View Live Demo
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value" data-count="2500">0</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" data-count="98">0</div>
+          <div class="stat-label">% Uptime</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" data-count="500">0</div>
+          <div class="stat-label">K+ Tasks Automated</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dashboard-mockup">
+        <div class="mockup-header">
+          <div class="mockup-dots"><span></span><span></span><span></span></div>
+          <div class="mockup-title">ApexFlow Dashboard</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="sidebar-item active"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+          </div>
+          <div class="mockup-main">
+            <div class="mockup-cards">
+              <div class="mockup-card">
+                <div class="card-label">Leads Today</div>
+                <div class="card-value">247</div>
+                <div class="card-change up">+12%</div>
+              </div>
+              <div class="mockup-card">
+                <div class="card-label">Response Time</div>
+                <div class="card-value">2.4s</div>
+                <div class="card-change up">-18%</div>
+              </div>
+              <div class="mockup-card">
+                <div class="card-label">Conversion</div>
+                <div class="card-value">34%</div>
+                <div class="card-change up">+5%</div>
+              </div>
+            </div>
+            <div class="mockup-chart">
+              <div class="chart-bars">
+                <div class="bar" style="height:40%"></div>
+                <div class="bar" style="height:65%"></div>
+                <div class="bar" style="height:50%"></div>
+                <div class="bar" style="height:85%"></div>
+                <div class="bar" style="height:70%"></div>
+                <div class="bar" style="height:90%"></div>
+                <div class="bar" style="height:60%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floating-card card-ai">
+        <div class="floating-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="floating-text">
+          <div class="floating-title">AI Assistant</div>
+          <div class="floating-desc">Qualifying leads...</div>
+        </div>
+        <div class="floating-pulse"></div>
+      </div>
+      <div class="floating-card card-leads">
+        <div class="floating-icon green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="floating-text">
+          <div class="floating-title">New Lead</div>
+          <div class="floating-desc">Acme Corp — Hot</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo Strip -->
+  <section class="logo-strip">
+    <div class="strip-container">
+      <p class="strip-label">Trusted by forward-thinking teams</p>
+      <div class="logo-scroll">
+        <div class="logo-track">
+          <span class="company-name">Sterling Vale</span>
+          <span class="company-name">Nexus Group</span>
+          <span class="company-name">BrightPath</span>
+          <span class="company-name">CoreTech</span>
+          <span class="company-name">Summit Labs</span>
+          <span class="company-name">Nova Digital</span>
+          <span class="company-name">Sterling Vale</span>
+          <span class="company-name">Nexus Group</span>
+          <span class="company-name">BrightPath</span>
+          <span class="company-name">CoreTech</span>
+          <span class="company-name">Summit Labs</span>
+          <span class="company-name">Nova Digital</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">Features</div>
+        <h2 class="section-title">Everything You Need to <span class="gradient-text">Scale</span></h2>
+        <p class="section-desc">Powerful AI automation tools designed to replace repetitive work and grow your business.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card large">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="feature-title">AI Lead Qualification</h3>
+          <p class="feature-desc">Our AI automatically engages, scores, and qualifies leads 24/7. Never miss a hot prospect again.</p>
+          <div class="feature-visual">
+            <div class="chat-demo">
+              <div class="chat-msg bot">
+                <div class="chat-avatar">AI</div>
+                <div class="chat-bubble">Hi! I see you're interested in our enterprise plan. What's your team size?</div>
+              </div>
+              <div class="chat-msg user">
+                <div class="chat-bubble">We have about 45 people</div>
+              </div>
+              <div class="chat-msg bot">
+                <div class="chat-avatar">AI</div>
+                <div class="chat-bubble">Perfect! I'll connect you with our solutions team. Score: 92/100</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon orange">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="feature-title">Smart Workflows</h3>
+          <p class="feature-desc">Build complex automation workflows with a visual drag-and-drop builder. No code required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon purple">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h3 class="feature-title">Unified Dashboard</h3>
+          <p class="feature-desc">Monitor all your automations, leads, and analytics in one beautiful, real-time dashboard.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-title">Enterprise Security</h3>
+          <p class="feature-desc">SOC 2 compliant with end-to-end encryption. Your data is protected at every layer.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon pink">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="feature-title">Team Collaboration</h3>
+          <p class="feature-desc">Assign leads, leave notes, and collaborate with your team in real-time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">How It Works</div>
+        <h2 class="section-title">Set Up in <span class="gradient-text">Minutes</span>, Not Months</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Connect Your Channels</h3>
+          <p class="step-desc">Link your website, WhatsApp, email, and social media in one click.</p>
+          <div class="step-visual">
+            <div class="connect-icons">
+              <div class="connect-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+              <div class="connect-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="connect-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Train Your AI</h3>
+          <p class="step-desc">Upload your FAQ, sales scripts, and brand voice. The AI learns in seconds.</p>
+          <div class="step-visual">
+            <div class="training-animation">
+              <div class="brain-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
+              </div>
+              <div class="data-particles">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Watch It Scale</h3>
+          <p class="step-desc">The AI handles inquiries, qualifies leads, and books meetings while you focus on closing.</p>
+          <div class="step-visual">
+            <div class="growth-chart">
+              <div class="growth-line">
+                <svg viewBox="0 0 200 60" preserveAspectRatio="none">
+                  <path d="M0 55 C30 55, 40 45, 60 40 S90 20, 120 25 S160 5, 200 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="200" cy="2" r="4" fill="currentColor"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge">Testimonials</div>
+        <h2 class="section-title">Loved by <span class="gradient-text">Teams</span> Worldwide</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"ApexFlow qualified 300 leads in our first week. Our sales team only talks to prospects who are ready to buy. Game changer."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2)">SO</div>
+            <div class="author-info">
+              <div class="author-name">Sarah Okafor</div>
+              <div class="author-role">Head of Sales, TechNova</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"We reduced our customer support response time from 4 hours to under 2 minutes. Our CSAT score went from 72% to 94%."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c)">JA</div>
+            <div class="author-info">
+              <div class="author-name">James Adeyemi</div>
+              <div class="author-role">CEO, BrightPath Logistics</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-text">"The workflow builder is incredible. We automated our entire onboarding process in 20 minutes. No developers needed."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe)">CN</div>
+            <div class="author-info">
+              <div class="author-name">Chioma Nwosu</div>
+              <div class="author-role">Operations Director, CoreTech</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Waitlist Section -->
+  <section class="waitlist" id="waitlist">
+    <div class="waitlist-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+    </div>
+    <div class="section-container">
+      <div class="waitlist-content">
+        <h2 class="waitlist-title">Ready to <span class="gradient-text">Automate</span> Your Growth?</h2>
+        <p class="waitlist-desc">Join 2,000+ businesses using ApexFlow to scale without hiring more staff. Start your free 14-day trial today.</p>
+        <form class="waitlist-form" id="waitlist-form">
+          <div class="form-group">
+            <input type="email" class="form-input" placeholder="Enter your work email" required />
+            <button type="submit" class="btn btn-primary">Start Free Trial</button>
+          </div>
+          <p class="form-note">No credit card required. 14-day free trial.</p>
+        </form>
+        <div class="waitlist-checks">
+          <div class="check-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Free 14-day trial
+          </div>
+          <div class="check-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            No credit card required
+          </div>
+          <div class="check-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Cancel anytime
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="./" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L28 9v14L16 30 4 23V9l12-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M16 8l8 4.5v9L16 26l-8-4.5v-9L16 8z" fill="currentColor" opacity="0.3"/>
+                <circle cx="16" cy="17" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="logo-text">ApexFlow</span>
+          </a>
+          <p class="footer-desc">AI-powered business automation that scales with you. Built for modern teams.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="./pricing/">Pricing</a>
+          <a href="./dashboard/">Dashboard Demo</a>
+          <a href="#">Changelog</a>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">Help Center</a>
+          <a href="#">API Reference</a>
+          <a href="#">Status</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> ApexFlow Demo. Built by <a href="https://chadadigital.com">Chada Digital</a>.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget -->
+  <div class="chat-widget" id="chat-widget">
+    <button class="chat-toggle" id="chat-toggle" aria-label="Open chat">
+      <svg class="chat-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <svg class="chat-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-header">
+        <div class="chat-avatar">AI</div>
+        <div class="chat-info">
+          <div class="chat-name">Apex AI</div>
+          <div class="chat-status"><span class="status-dot"></span> Online</div>
+        </div>
+      </div>
+      <div class="chat-body" id="chat-body">
+        <div class="chat-msg bot">
+          <div class="chat-avatar">AI</div>
+          <div class="chat-bubble">Hi there! I'm Apex AI. How can I help you automate your business today?</div>
+        </div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Type a message..." />
+        <button class="chat-send" id="chat-send">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

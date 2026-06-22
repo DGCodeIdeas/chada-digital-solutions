@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Your Stay — ELYSIAN</title>
+  <meta name="description" content="Complete your reservation at ELYSIAN luxury hotel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="nav-header" id="nav-header">
+    <div class="nav-container">
+      <a href="../" class="logo">ELYSIAN</a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../">Home</a>
+        <a href="../rooms/">Rooms</a>
+        <a href="../rooms/">Dining</a>
+        <a href="../rooms/">Spa</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+      <a href="./" class="nav-cta">Book Now</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../">Home</a> <span>/</span> <a href="../rooms/">Rooms</a> <span>/</span> Booking
+  </div>
+
+  <div class="booking-page">
+    <h1 class="booking-page-title">Complete Your Reservation</h1>
+    <p class="booking-page-subtitle">Select your dates and provide your details to confirm your stay.</p>
+
+    <div class="booking-form-grid">
+      <div>
+        <div class="calendar-widget">
+          <div class="calendar-header">
+            <h3 class="calendar-title" id="cal-month">Select Your Dates</h3>
+            <div class="calendar-nav">
+              <button id="cal-prev" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button id="cal-next" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+          <div class="calendar-grid" id="calendar"></div>
+        </div>
+
+        <form class="booking-form-section" id="booking-form">
+          <h3 class="form-section-title">Guest Details</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" placeholder="John" required />
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-field full">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-field full">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+234 800 000 0000" required />
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Country</label>
+              <select required>
+                <option value="">Select</option>
+                <option value="NG">Nigeria</option>
+                <option value="GH">Ghana</option>
+                <option value="KE">Kenya</option>
+                <option value="ZA">South Africa</option>
+                <option value="US">United States</option>
+                <option value="UK">United Kingdom</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Special Requests</label>
+              <input type="text" placeholder="Any requests?" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px;">Confirm Booking</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="booking-summary">
+          <h3 style="font-family:var(--font-serif);font-size:1.25rem;font-weight:600;margin-bottom:4px;">Booking Summary</h3>
+          <p id="summary-dates" style="font-size:0.875rem;color:var(--text-muted);margin-bottom:20px;">Select dates to see pricing</p>
+          <div class="summary-row">
+            <span>Room</span>
+            <span id="summary-room">Deluxe Garden Suite</span>
+          </div>
+          <div class="summary-row">
+            <span>Price per night</span>
+            <span id="summary-price">$285</span>
+          </div>
+          <div class="summary-row">
+            <span>Nights</span>
+            <span id="summary-nights">—</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="summary-total">$0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 60px;">
+    <div class="footer-bottom" style="border: none; padding-top: 0;">
+      <p> ELYSIAN Demo. Built by <a href="https://chadadigital.com" style="color: var(--terracotta);">Chada Digital</a>.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

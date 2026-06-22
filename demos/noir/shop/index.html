@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop — NOIR</title>
+  <meta name="description" content="Browse the NOIR collection. Luxury fashion, curated for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="nav-header" id="nav-header">
+    <div class="nav-container">
+      <a href="../" class="logo">NOIR<span>.</span></a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../">Home</a>
+        <a href="./" class="active">Shop</a>
+        <a href="./">New Arrivals</a>
+        <a href="./">Collections</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="./" class="nav-icon" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+        <a href="../cart/" class="nav-icon" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../">Home</a> <span>/</span> Shop
+  </div>
+
+  <div class="shop-layout">
+    <aside class="shop-sidebar">
+      <div class="filter-group">
+        <h4 class="filter-title">Categories</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" value="outerwear"> Outerwear</label>
+          <label class="filter-option"><input type="checkbox" value="evening"> Evening Wear</label>
+          <label class="filter-option"><input type="checkbox" value="essentials"> Essentials</label>
+          <label class="filter-option"><input type="checkbox" value="accessories"> Accessories</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h4 class="filter-title">Price</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox"> Under $300</label>
+          <label class="filter-option"><input type="checkbox"> $300 — $500</label>
+          <label class="filter-option"><input type="checkbox"> $500+</label>
+        </div>
+      </div>
+    </aside>
+
+    <div class="shop-main">
+      <div class="shop-toolbar">
+        <span class="shop-count" id="shop-count">Showing 12 products</span>
+        <select class="shop-sort" id="sort-select">
+          <option value="default">Sort by: Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+      <div class="products-grid" id="shop-products"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../" class="logo">NOIR<span>.</span></a>
+        <p class="footer-desc">Curated luxury fashion for the modern individual. Designed in Lagos, worn worldwide.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="./">New Arrivals</a>
+        <a href="./">Evening Wear</a>
+        <a href="./">Outerwear</a>
+        <a href="./">Accessories</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">FAQ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p> NOIR Demo. Built by <a href="https://chadadigital.com" style="color: var(--gold);">Chada Digital</a>.</p>
+      <p>Privacy &middot; Terms &middot; Cookies</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
