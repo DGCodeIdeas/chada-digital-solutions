@@ -52,7 +52,7 @@
 
   const aiResponses = [
     "That's a great question! ApexFlow can handle up to 10,000 conversations per month on our Pro plan.",
-    "I can help you set up your first automation workflow. Would you like to schedule a quick demo?",
+    "I can help you set up your first automation workflow. Would you like to schedule a quick walkthrough?",
     "Our AI is trained on your specific data, so it understands your business and speaks your brand's voice.",
     "You can integrate ApexFlow with WhatsApp, email, your website, and 50+ other channels.",
     "The setup takes about 10 minutes. Just connect your channels and upload your FAQ — our AI handles the rest!",

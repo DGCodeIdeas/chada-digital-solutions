@@ -1,5 +1,5 @@
 /* ========================================
-   APEXFLOW — Modern SaaS Demo Styles
+   APEXFLOW — Modern SaaS Styles
    Built by Chada Digital
    ======================================== */
 
@@ -778,8 +778,8 @@ img {
   padding-top: 24px;
 }
 
-/* Chat Demo in Feature Card */
-.chat-demo {
+/* Chat Preview in Feature Card */
+.chat-widget {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius);

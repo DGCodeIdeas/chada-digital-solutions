@@ -185,6 +185,92 @@
   }
 
   /* ----------------------------------------------------------------
+   * Projects Modal (All Projects grid)
+   * ------------------------------------------------------------- */
+  function setupProjectsModal() {
+    var btn = document.getElementById("view-all-projects-btn");
+    var modal = document.getElementById("projects-modal");
+    if (!btn || !modal) return;
+
+    var closeBtn = document.getElementById("projects-modal-close");
+    var backdrop = modal.querySelector(".modal-backdrop");
+    var panel = modal.querySelector(".modal-panel");
+    var body = document.body;
+    var focusableSelectors = "a[href], button, textarea, input[type=text], input[type=radio], input[type=checkbox], select";
+    var focusables = [];
+    var lastFocused = null;
+
+    function trapFocus(e) {
+      if (focusables.length === 0) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (e.key === "Tab") {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "Tab") {
+        trapFocus(e);
+      }
+    }
+
+    function onBackdropClick(e) {
+      if (e.target === modal || e.target === backdrop) {
+        closeModal();
+      }
+    }
+
+    function openModal() {
+      lastFocused = document.activeElement;
+      modal.classList.remove("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      body.style.overflow = "hidden";
+      requestAnimationFrame(function () {
+        backdrop.style.opacity = "1";
+        panel.style.opacity = "1";
+        panel.style.transform = "scale(1) translateY(0)";
+      });
+      focusables = Array.from(modal.querySelectorAll(focusableSelectors)).filter(function (el) {
+        return el.offsetParent !== null;
+      });
+      if (focusables.length) focusables[0].focus();
+      document.addEventListener("keydown", onKeyDown);
+      modal.addEventListener("click", onBackdropClick);
+    }
+
+    function closeModal() {
+      backdrop.style.opacity = "0";
+      panel.style.opacity = "0";
+      panel.style.transform = "scale(0.95) translateY(1rem)";
+      setTimeout(function () {
+        modal.classList.add("hidden");
+        modal.setAttribute("aria-hidden", "true");
+        body.style.overflow = "";
+        document.removeEventListener("keydown", onKeyDown);
+        modal.removeEventListener("click", onBackdropClick);
+        if (lastFocused) lastFocused.focus();
+      }, 300);
+    }
+
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      openModal();
+    });
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  }
+
+  /* ----------------------------------------------------------------
    * Init
    * ------------------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", function () {
@@ -194,5 +280,6 @@
     setupChadaContactForm();
     setupSterlingContactForm();
     setupFooterYear();
+    setupProjectsModal();
   });
 })();
