@@ -1,0 +1,27 @@
+{
+  "name": "chada-digital-solutions",
+  "version": "1.0.0",
+  "description": "Chada Digital - Digital Solutions That Scale Businesses",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DGCodeIdeas/chada-digital-solutions.git"
+  },
+  "keywords": [
+    "digital-solutions",
+    "web-development",
+    "brand-identity"
+  ],
+  "author": "Chada Digital",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DGCodeIdeas/chada-digital-solutions/issues"
+  },
+  "homepage": "https://github.com/DGCodeIdeas/chada-digital-solutions#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
