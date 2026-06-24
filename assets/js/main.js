@@ -199,6 +199,8 @@
     var focusableSelectors = "a[href], button, textarea, input[type=text], input[type=radio], input[type=checkbox], select";
     var focusables = [];
     var lastFocused = null;
+    var scrollY = 0;
+    var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     function trapFocus(e) {
       if (focusables.length === 0) return;
@@ -231,13 +233,20 @@
       }
     }
 
+    var html = document.documentElement;
+
     function openModal() {
       lastFocused = document.activeElement;
+      scrollY = window.scrollY || html.scrollTop;
+      html.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      body.style.paddingRight = scrollbarWidth + "px";
       modal.classList.remove("hidden");
       modal.setAttribute("aria-hidden", "false");
-      body.style.overflow = "hidden";
       requestAnimationFrame(function () {
         backdrop.style.opacity = "1";
+        backdrop.style.backdropFilter = "blur(12px)";
+        backdrop.style.webkitBackdropFilter = "blur(12px)";
         panel.style.opacity = "1";
         panel.style.transform = "scale(1) translateY(0)";
       });
@@ -251,12 +260,17 @@
 
     function closeModal() {
       backdrop.style.opacity = "0";
+      backdrop.style.backdropFilter = "blur(0px)";
+      backdrop.style.webkitBackdropFilter = "blur(0px)";
       panel.style.opacity = "0";
       panel.style.transform = "scale(0.95) translateY(1rem)";
       setTimeout(function () {
         modal.classList.add("hidden");
         modal.setAttribute("aria-hidden", "true");
+        html.style.overflow = "";
         body.style.overflow = "";
+        body.style.paddingRight = "";
+        window.scrollTo(0, scrollY);
         document.removeEventListener("keydown", onKeyDown);
         modal.removeEventListener("click", onBackdropClick);
         if (lastFocused) lastFocused.focus();
