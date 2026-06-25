@@ -1,0 +1,136 @@
+{
+  "nav": [
+    { "href": "#hero", "text": "Home" },
+    { "href": "#about", "text": "About Us" },
+    { "href": "#services", "text": "Services" },
+    { "href": "#portfolio", "text": "Our Work" },
+    { "href": "#products", "text": "Products" },
+    { "href": "#contact", "text": "Contact" }
+  ],
+  "hero": {
+    "badge": "Based in Lagos · Serving the World",
+    "title": "Digital Solutions That",
+    "titleHighlight": "Scale Businesses",
+    "description": "We engineer high-performance websites, command-attention brands, and intelligent automation for ambitious teams across Nigeria and beyond.",
+    "ctas": [
+      { "href": "#contact", "text": "Start a Project", "primary": true },
+      { "href": "#portfolio", "text": "View Our Work", "primary": false }
+    ]
+  },
+  "about": {
+    "badge": "Trusted Digital Solutions For",
+    "clients": [
+      { "icon": "rocket", "title": "Startups", "description": "Helping startups build a strong digital foundation and launch with impact." },
+      { "icon": "briefcase", "title": "SMEs", "description": "Digital systems that improve efficiency and drive sustainable growth." },
+      { "icon": "building-2", "title": "Enterprises", "description": "Scalable solutions that modernize legacy systems and streamline operations." },
+      { "icon": "users", "title": "Agencies", "description": "White-label development and design partnerships that expand your capabilities." }
+    ]
+  },
+  "services": {
+    "badge": "What We Do",
+    "title": "Services That Drive",
+    "titleHighlight": "Real Results",
+    "description": "From concept to launch, we build digital products that are fast, beautiful, and built to convert.",
+    "services": [
+      { "icon": "code-2", "title": "Web Development", "description": "Custom websites and web applications built for speed, SEO, and conversion.", "link": { "href": "#contact", "text": "Learn More" } },
+      { "icon": "palette", "title": "Brand Identity", "description": "Strategic branding that tells your story and creates lasting impressions.", "link": { "href": "#contact", "text": "Learn More" } },
+      { "icon": "bot", "title": "Automation", "description": "Smart workflows and AI integrations that save time and reduce manual work.", "link": { "href": "#contact", "text": "Learn More" } },
+      { "icon": "smartphone", "title": "Digital Strategy", "description": "Data-driven roadmaps that align your digital presence with business goals.", "link": { "href": "#contact", "text": "Learn More" } }
+    ]
+  },
+  "portfolio": {
+    "badge": "Our Work",
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "description": "A selection of recent work across industries and use cases.",
+    "button": { "href": "#", "text": "View All Projects", "id": "view-all-projects-btn" },
+    "featured": [
+      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website" },
+      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation" },
+      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform" }
+    ]
+  },
+  "products": {
+    "badge": "Products & Solutions",
+    "title": "Smart Tools That Make",
+    "titleHighlight": "Work Easier",
+    "description": "Pre-built solutions you can deploy immediately to solve common business challenges.",
+    "products": [
+      { "icon": "file-text", "title": "QuoteGen", "description": "Instant proposal and quotation generator for service businesses.", "link": { "href": "#contact", "text": "Get QuoteGen" } },
+      { "icon": "calendar-check", "title": "BookingFlow", "description": "Appointment and booking management system for clinics, salons, and consultants.", "link": { "href": "#contact", "text": "Get BookingFlow" } },
+      { "icon": "message-square", "title": "ChatDesk", "description": "AI-powered customer support chatbot that integrates with your website and CRM.", "link": { "href": "#contact", "text": "Get ChatDesk" } },
+      { "icon": "bar-chart-3", "title": "InsightDash", "description": "Business analytics dashboard that connects your data sources for real-time insights.", "link": { "href": "#contact", "text": "Get InsightDash" } }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's build something that",
+    "titleHighlight": "scales.",
+    "description": "Ready to transform your digital presence? Tell us about your project and we'll get back to you within 24 hours.",
+    "info": [
+      { "label": "Email", "value": "hello@chadadigital.com", "icon": "mail" },
+      { "label": "Phone", "value": "+234 800 123 4567", "icon": "phone" },
+      { "label": "Location", "value": "Lagos, Nigeria", "icon": "map-pin" }
+    ],
+    "socials": [
+      { "href": "https://twitter.com/chadadigital", "label": "Twitter", "icon": "twitter" },
+      { "href": "https://linkedin.com/company/chadadigital", "label": "LinkedIn", "icon": "linkedin" },
+      { "href": "https://instagram.com/chadadigital", "label": "Instagram", "icon": "instagram" }
+    ],
+    "form": {
+      "action": "#",
+      "method": "POST",
+      "fields": [
+        { "name": "name", "type": "text", "label": "Name", "placeholder": "Your name", "required": true },
+        { "name": "email", "type": "email", "label": "Email", "placeholder": "your@email.com", "required": true },
+        { "name": "message", "type": "textarea", "label": "Message", "placeholder": "Tell us about your project...", "required": true, "rows": 5 }
+      ],
+      "submitText": "Send Message"
+    }
+  },
+  "footer": {
+    "company": "Chada Digital",
+    "tagline": "Digital solutions that help businesses grow, automate, and scale.",
+    "columns": [
+      {
+        "title": "Explore",
+        "links": [
+          { "href": "#hero", "text": "Home" },
+          { "href": "#about", "text": "About" },
+          { "href": "#services", "text": "Services" },
+          { "href": "#portfolio", "text": "Portfolio" }
+        ]
+      },
+      {
+        "title": "Services",
+        "links": [
+          { "href": "#services", "text": "Web Development" },
+          { "href": "#services", "text": "Brand Identity" },
+          { "href": "#services", "text": "Automation" },
+          { "href": "#services", "text": "Digital Strategy" }
+        ]
+      },
+      {
+        "title": "Connect",
+        "links": [
+          { "href": "#contact", "text": "Contact" },
+          { "href": "https://twitter.com/chadadigital", "text": "Twitter" },
+          { "href": "https://linkedin.com/company/chadadigital", "text": "LinkedIn" },
+          { "href": "https://instagram.com/chadadigital", "text": "Instagram" }
+        ]
+      }
+    ],
+    "copyright": "© {year} Chada Digital · All rights reserved"
+  },
+  "modal": {
+    "badge": "Our Work",
+    "title": "All Projects",
+    "projects": [
+      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website" },
+      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation" },
+      { "href": "/demos/noir", "alt": "NOIR", "image": "/assets/images/project-noir.jpg", "title": "NOIR", "description": "E-Commerce — Fashion Store" },
+      { "href": "/demos/elysian", "alt": "ELYSIAN", "image": "/assets/images/project-elysian.jpg", "title": "ELYSIAN", "description": "Booking — Hotel & Spa" },
+      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform" }
+    ]
+  }
+}

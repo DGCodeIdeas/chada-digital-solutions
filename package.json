@@ -1,0 +1,17 @@
+{
+  "name": "chada-digital",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Chada Digital — Digital Solutions That Scale Businesses",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/netlify": "^4.0.0"
+  }
+}
