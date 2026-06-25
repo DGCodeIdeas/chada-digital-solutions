@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import siteData from '@/data/site.json';
+import type { SiteData } from '@/types';
+
+const site: SiteData = siteData as SiteData;
+const { settings, 404: error404 } = site;
+---
+
+<Layout title={`${error404.title} — ${settings.name}`} noindex>
+  <main class="flex min-h-screen items-center justify-center px-6">
+    <div class="text-center">
+      <span class="text-6xl font-extrabold text-primary">{error404.code}</span>
+      <h1 class="mt-4 font-display text-2xl font-bold tracking-tight md:text-4xl">{error404.title}</h1>
+      <p class="mt-4 max-w-md mx-auto text-muted-foreground">{error404.message}</p>
+      <a href={error404.button.href} class="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30">
+        {error404.button.text}
+      </a>
+    </div>
+  </main>
+</Layout>

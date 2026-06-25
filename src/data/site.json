@@ -1,4 +1,32 @@
 {
+  "settings": {
+    "name": "Chada Digital",
+    "url": "https://www.chadadigital.com",
+    "logo": "https://www.chadadigital.com/chada-logo-horizontal.png",
+    "ogImage": "https://www.chadadigital.com/og-image.jpg",
+    "slogan": "Digital Solutions That Scale Businesses",
+    "author": "Chada Digital",
+    "copyright": "Chada Digital",
+    "themeColor": "#0e1b2e",
+    "locale": "en_NG",
+    "priceRange": "$$$",
+    "areaServed": "Worldwide",
+    "schema": {
+      "address": {
+        "locality": "Lagos",
+        "country": "NG"
+      },
+      "openingHours": {
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "contact": {
+        "type": "Customer Service",
+        "language": "English"
+      }
+    }
+  },
   "nav": [
     { "href": "#hero", "text": "Home" },
     { "href": "#about", "text": "About Us" },
@@ -132,5 +160,14 @@
       { "href": "/demos/elysian", "alt": "ELYSIAN", "image": "/assets/images/project-elysian.jpg", "title": "ELYSIAN", "description": "Booking — Hotel & Spa" },
       { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform" }
     ]
+  },
+  "404": {
+    "code": "404",
+    "title": "Page Not Found",
+    "message": "The page you are looking for doesn't exist or has been moved.",
+    "button": {
+      "href": "/",
+      "text": "Go Back Home"
+    }
   }
 }

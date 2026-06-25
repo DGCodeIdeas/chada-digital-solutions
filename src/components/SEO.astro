@@ -1,0 +1,116 @@
+---
+import type { SiteData } from '@/types';
+import siteData from '@/data/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const site: SiteData = siteData as SiteData;
+const { settings } = site;
+
+const {
+  title = `${settings.name} — ${settings.slogan}`,
+  description = site.hero.description,
+  canonical = Astro.url.pathname === '/' ? settings.url : `${settings.url.replace(/\/$/, '')}${Astro.url.pathname}`,
+  ogImage = settings.ogImage,
+  noindex = false,
+} = Astro.props;
+
+const schemaJson = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['Organization', 'LocalBusiness'],
+      name: settings.name,
+      url: settings.url,
+      logo: settings.logo,
+      image: ogImage,
+      description,
+      slogan: settings.slogan,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: settings.schema.address.locality,
+        addressCountry: settings.schema.address.country,
+      },
+      areaServed: settings.areaServed,
+      priceRange: settings.priceRange,
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: settings.schema.openingHours.days,
+        opens: settings.schema.openingHours.opens,
+        closes: settings.schema.openingHours.closes,
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: settings.schema.contact.type,
+        availableLanguage: settings.schema.contact.language,
+      },
+    },
+    {
+      '@type': 'WebSite',
+      name: settings.name,
+      url: settings.url,
+      publisher: {
+        '@type': 'Organization',
+        name: settings.name,
+      },
+    },
+  ],
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{noindex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+)}
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="author" content={settings.author} />
+<meta name="copyright" content={settings.copyright} />
+<meta name="theme-color" content={settings.themeColor} />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang={settings.locale} href={canonical} />
+<link rel="alternate" hreflang="x-default" href={canonical} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={settings.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={settings.locale} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:secure_url" content={ogImage} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1216" />
+<meta property="og:image:height" content="640" />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color={settings.themeColor} />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="msapplication-TileColor" content={settings.themeColor} />
+<meta name="msapplication-config" content="/browserconfig.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700;800&display=swap" as="style" />
+<link rel="preload" href="/assets/css/styles.css" as="style" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700;800&display=swap" />
+<link rel="stylesheet" href="/assets/css/styles.css" />
+<script type="application/ld+json" set:html={JSON.stringify(schemaJson)} />
+<slot name="head" />
