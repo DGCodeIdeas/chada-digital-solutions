@@ -32,23 +32,205 @@ const { contact } = siteData;
         ))}
       </div>
     </div>
+
     <div class="rounded-2xl border border-border bg-card/40 p-8 md:p-10">
-      <form id="chada-contact-form" class="space-y-6">
+      <!-- Success state -->
+      <div id="form-success" style="display:none;" class="flex flex-col items-center justify-center text-center py-12">
+        <div class="inline-flex size-16 items-center justify-center rounded-full bg-primary/15 text-primary mb-6">
+          <Icon name="check" size={28} class="size-7" strokeWidth={2.5} />
+        </div>
+        <h3 class="text-xl font-bold mb-3">Message Sent!</h3>
+        <p class="text-muted-foreground max-w-xs">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+      </div>
+
+      <!-- Contact form -->
+      <form
+        id="chada-contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        class="space-y-6"
+        novalidate
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <!-- Honeypot: hidden from humans via CSS, filled by bots -->
+        <p class="chada-honeypot">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
         {contact.form.fields.map((field) => (
-          <div>
-            <label class="mb-2 block text-sm font-medium" for={field.name}>{field.label}</label>
+          <div class="chada-form-group">
+            <label class="mb-2 block text-sm font-medium" for={field.name}>
+              {field.label}
+              {field.required && <span class="ml-0.5 text-primary" aria-hidden="true">*</span>}
+            </label>
             {field.type === 'textarea' ? (
-              <textarea id={field.name} name={field.name} rows={field.rows} required={field.required} placeholder={field.placeholder} class="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+              <textarea
+                id={field.name}
+                name={field.name}
+                rows={field.rows}
+                required={field.required}
+                placeholder={field.placeholder}
+                class="chada-field-input w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+              ></textarea>
             ) : (
-              <input id={field.name} name={field.name} type={field.type} required={field.required} placeholder={field.placeholder} class="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input
+                id={field.name}
+                name={field.name}
+                type={field.type}
+                required={field.required}
+                placeholder={field.placeholder}
+                class="chada-field-input w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+              />
             )}
+            <p class="chada-error-msg mt-1.5 text-xs font-medium text-red-500" role="alert"></p>
           </div>
         ))}
-        <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30">
-          {contact.form.submitText}
-          <Icon name="arrow-right" size={16} class="size-4" />
+
+        <p id="chada-form-error" class="text-sm font-medium text-red-500 text-center" role="alert" aria-live="polite"></p>
+
+        <button
+          type="submit"
+          id="chada-submit-btn"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30"
+        >
+          <span id="chada-submit-label">{contact.form.submitText}</span>
+          <span id="chada-submit-arrow">
+            <Icon name="arrow-right" size={16} class="size-4" />
+          </span>
+          <svg id="chada-submit-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-4 animate-spin" style="display:none;" aria-hidden="true">
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+          </svg>
         </button>
       </form>
     </div>
   </div>
 </section>
+
+<style>
+  .chada-honeypot {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .chada-field-input.is-invalid {
+    border-color: rgb(239 68 68);
+  }
+  .chada-field-input.is-invalid:focus {
+    border-color: rgb(239 68 68);
+    --tw-ring-color: rgb(239 68 68);
+  }
+
+  .chada-error-msg:empty {
+    display: none;
+  }
+
+  #chada-form-error:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('chada-contact-form') as HTMLFormElement | null;
+  const successEl = document.getElementById('form-success');
+  const submitBtn = document.getElementById('chada-submit-btn') as HTMLButtonElement | null;
+  const submitLabel = document.getElementById('chada-submit-label');
+  const submitArrow = document.getElementById('chada-submit-arrow');
+  const submitSpinner = document.getElementById('chada-submit-spinner');
+  const formError = document.getElementById('chada-form-error');
+
+  if (!form || !submitBtn) throw new Error('Contact form elements missing');
+
+  function getInput(name: string) {
+    return form!.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${name}"]`);
+  }
+
+  function setFieldError(name: string, message: string) {
+    const group = getInput(name)?.closest('.chada-form-group');
+    if (!group) return;
+    const input = group.querySelector<HTMLElement>('.chada-field-input');
+    const msg = group.querySelector<HTMLElement>('.chada-error-msg');
+    input?.classList.add('is-invalid');
+    if (msg) msg.textContent = message;
+  }
+
+  function clearErrors() {
+    form!.querySelectorAll<HTMLElement>('.chada-field-input').forEach(el => el.classList.remove('is-invalid'));
+    form!.querySelectorAll<HTMLElement>('.chada-error-msg').forEach(el => { el.textContent = ''; });
+    if (formError) formError.textContent = '';
+  }
+
+  function validate(): boolean {
+    let valid = true;
+
+    const name = getInput('name');
+    const email = getInput('email') as HTMLInputElement | null;
+    const message = getInput('message');
+
+    if (!name?.value.trim()) {
+      setFieldError('name', 'Your name is required.');
+      valid = false;
+    }
+
+    if (!email?.value.trim()) {
+      setFieldError('email', 'Your email address is required.');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      setFieldError('email', 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    if (!message?.value.trim()) {
+      setFieldError('message', 'A message is required.');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function setLoading(loading: boolean) {
+    submitBtn!.disabled = loading;
+    submitBtn!.style.opacity = loading ? '0.65' : '';
+    submitBtn!.style.cursor = loading ? 'not-allowed' : '';
+    submitBtn!.style.transform = loading ? 'none' : '';
+    if (submitLabel) submitLabel.textContent = loading ? 'Sending…' : 'Send Message';
+    if (submitArrow) submitArrow.style.display = loading ? 'none' : '';
+    if (submitSpinner) submitSpinner.style.display = loading ? '' : 'none';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    if (!validate()) return;
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form!) as unknown as URLSearchParams).toString(),
+      });
+
+      if (response.ok) {
+        form!.style.display = 'none';
+        if (successEl) successEl.style.display = 'flex';
+      } else {
+        if (formError) formError.textContent = 'Something went wrong. Please try again.';
+        setLoading(false);
+      }
+    } catch {
+      if (formError) formError.textContent = 'Unable to send. Please check your connection and try again.';
+      setLoading(false);
+    }
+  });
+</script>
