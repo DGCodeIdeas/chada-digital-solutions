@@ -9,8 +9,7 @@
   "rewrites": [
     {
       "source": "/demos/:path*",
-      "destination": "/:path*",
-      "permanent": true
+      "destination": "/:path*"
     }
   ],
   "headers": [
