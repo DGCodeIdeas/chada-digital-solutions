@@ -9,6 +9,31 @@ import Products from '@/components/Products.astro';
 import Contact from '@/components/Contact.astro';
 import Footer from '@/components/Footer.astro';
 import ProjectsModal from '@/components/ProjectsModal.astro';
+import type { APIRoute } from 'astro';
+
+// Handle POST requests for contact form - forward to API endpoint
+export const POST: APIRoute = async ({ request }) => {
+  // Forward to the API endpoint
+  const apiUrl = new URL('/api/contact', request.url);
+  const body = await request.text();
+  
+  const response = await fetch(apiUrl.toString(), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body,
+  });
+  
+  const responseBody = await response.text();
+  
+  return new Response(responseBody, {
+    status: response.status,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
 ---
 
 <Layout>

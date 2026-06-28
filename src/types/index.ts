@@ -54,6 +54,7 @@ export interface Project {
   image: string;
   title: string;
   description: string;
+  category: string;
 }
 
 export interface PortfolioData {
@@ -178,6 +179,76 @@ export interface Error404Data {
   title: string;
   message: string;
   button: Link;
+}
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+  'bot-field'?: string;
+}
+
+export interface ContactSubmission {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  timestamp: string;
+  ip: string;
+  userAgent: string;
+  read: boolean;
+}
+
+export interface ContactFormResponse {
+  success: boolean;
+  message: string;
+  errors?: Record<string, string[]>;
+}
+
+// Zohomail Configuration
+export interface ZohoMailConfig {
+  host: string;
+  port: number;
+  user: string;
+  fromEmail: string;
+}
+
+// Admin Settings Types
+export interface ValidationRules {
+  name: {
+    min: number;
+    max: number;
+    required: boolean;
+  };
+  email: {
+    min: number;
+    max: number;
+    required: boolean;
+  };
+  message: {
+    min: number;
+    max: number;
+    required: boolean;
+  };
+}
+
+export interface NotificationPreferences {
+  emailOnNewSubmission: boolean;
+  dailySummary: boolean;
+}
+
+export interface AdminSettings {
+  destinationEmail: string;
+  emailProvider: 'smtp' | 'zoho-api';
+  zohoMail: ZohoMailConfig;
+  validationRules: ValidationRules;
+  notifications: NotificationPreferences;
+}
+
+export interface SettingsResponse {
+  success: boolean;
+  settings?: AdminSettings;
+  message?: string;
 }
 
 export interface SiteData {

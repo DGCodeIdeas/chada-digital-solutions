@@ -1,0 +1,495 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/Icon.astro';
+import siteData from '@/data/site.json';
+import type { ContactSubmission } from '@/types/index';
+
+const { settings } = siteData;
+
+// Check authentication on server side
+const sessionCookie = Astro.request.headers.get('cookie');
+let isAuthenticated = false;
+
+if (sessionCookie) {
+  const session = sessionCookie
+    .split(';')
+    .find((c) => c.trim().startsWith('admin_session='));
+  
+  if (session) {
+    const sessionValue = session.split('=')[1];
+    if (sessionValue) {
+      const [token, signature] = sessionValue.split('.');
+      if (token && signature) {
+        // Import auth utilities
+        const { verifySessionSignature } = await import('@/lib/auth');
+        isAuthenticated = verifySessionSignature(token, signature);
+      }
+    }
+  }
+}
+
+// If not authenticated, redirect to login
+if (!isAuthenticated) {
+  return Astro.redirect('/admin/login');
+}
+
+// Get submissions
+let submissions: ContactSubmission[] = [];
+try {
+  const { readFile } = await import('fs/promises');
+  const { fileURLToPath } = await import('url');
+  const { dirname, join } = await import('path');
+  
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
+  const path = join(__dirname, '../data/submissions.json');
+  
+  const data = await readFile(path, 'utf-8');
+  submissions = JSON.parse(data);
+} catch {
+  submissions = [];
+}
+
+// Sort by timestamp (newest first)
+submissions.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+---
+
+<Layout title="Admin Dashboard" description="Manage contact form submissions">
+  <div class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="border-b border-border/40 bg-background/85 backdrop-blur-xl">
+      <div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-6">
+        <div class="flex items-center gap-4">
+          <a href="/" class="inline-flex items-center">
+            <img alt={settings.name} class="h-10 w-auto" src="/chada-mark.png" />
+          </a>
+          <h1 class="text-xl font-bold text-foreground">Admin Dashboard</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            href="/admin/settings"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            title="Settings"
+          >
+            <Icon name="settings" size={14} class="size-3.5" />
+            Settings
+          </a>
+          <span class="text-sm text-muted-foreground">Welcome, Admin</span>
+          <button
+            id="logout-btn"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            <Icon name="log-out" size={14} class="size-3.5" />
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mx-auto max-w-7xl px-6 py-12">
+      <!-- Stats -->
+      <div class="mb-8 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-2xl border border-border bg-card/40 p-6">
+          <div class="flex items-center gap-4">
+            <div class="inline-flex size-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <Icon name="mail" size={20} class="size-5" />
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-foreground">{submissions.length}</p>
+              <p class="text-sm text-muted-foreground">Total Submissions</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-border bg-card/40 p-6">
+          <div class="flex items-center gap-4">
+            <div class="inline-flex size-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <Icon name="mail-open" size={20} class="size-5" />
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-foreground">{submissions.filter(s => s.read).length}</p>
+              <p class="text-sm text-muted-foreground">Read</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-border bg-card/40 p-6">
+          <div class="flex items-center gap-4">
+            <div class="inline-flex size-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <Icon name="mail" size={20} class="size-5" />
+            </div>
+            <div>
+              <p class="text-2xl font-bold text-foreground">{submissions.filter(s => !s.read).length}</p>
+              <p class="text-sm text-muted-foreground">Unread</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search and Filter -->
+      <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="relative flex-1 max-w-md">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search submissions..."
+            class="w-full rounded-xl border border-border bg-background pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+          />
+          <Icon name="search" size={18} class="absolute left-3 top-1/2 -translate-y-1/2 size-[18px] text-muted-foreground" />
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            id="filter-all"
+            class="filter-btn inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary-foreground"
+          >
+            All
+          </button>
+          <button
+            id="filter-unread"
+            class="filter-btn inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            Unread
+          </button>
+          <button
+            id="filter-read"
+            class="filter-btn inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            Read
+          </button>
+        </div>
+      </div>
+
+      <!-- Submissions List -->
+      <div id="submissions-container" class="space-y-4">
+        {submissions.length === 0 ? (
+          <div class="rounded-2xl border border-border bg-card/40 p-12 text-center">
+            <Icon name="mail" size={48} class="mx-auto mb-4 size-12 text-muted-foreground" />
+            <h3 class="text-lg font-semibold text-foreground">No submissions yet</h3>
+            <p class="mt-2 text-sm text-muted-foreground">Contact form submissions will appear here</p>
+          </div>
+        ) : (
+          submissions.map((submission) => (
+            <div
+              class={`submission-card rounded-2xl border border-border bg-card/40 p-6 transition-all hover:shadow-lg ${!submission.read ? 'ring-1 ring-primary/20' : ''}`}
+              data-id={submission.id}
+              data-read={submission.read}
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-3 mb-2">
+                    <h3 class="font-semibold text-foreground">{submission.name}</h3>
+                    {!submission.read && (
+                      <span class="inline-flex items-center rounded-full bg-primary/15 px-2 py-0.5 text-xs font-medium text-primary">
+                        New
+                      </span>
+                    )}
+                  </div>
+                  <p class="text-sm text-primary mb-3">{submission.email}</p>
+                  <p class="text-sm text-muted-foreground line-clamp-2">{submission.message}</p>
+                  <p class="mt-3 text-xs text-muted-foreground">
+                    {new Date(submission.timestamp).toLocaleString()}
+                  </p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    class="view-details-btn inline-flex items-center justify-center size-9 rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                    data-id={submission.id}
+                    title="View details"
+                    aria-label="View details"
+                  >
+                    <Icon name="eye" size={16} class="size-4" />
+                  </button>
+                  <button
+                    class="toggle-read-btn inline-flex items-center justify-center size-9 rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                    data-id={submission.id}
+                    data-read={submission.read}
+                    title={submission.read ? 'Mark as unread' : 'Mark as read'}
+                    aria-label={submission.read ? 'Mark as unread' : 'Mark as read'}
+                  >
+                    <Icon name={submission.read ? 'mail' : 'mail-open'} size={16} class="size-4" />
+                  </button>
+                  <button
+                    class="delete-btn inline-flex items-center justify-center size-9 rounded-lg border border-border text-muted-foreground transition-colors hover:border-red-500 hover:text-red-500"
+                    data-id={submission.id}
+                    title="Delete"
+                    aria-label="Delete"
+                  >
+                    <Icon name="trash-2" size={16} class="size-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </main>
+
+    <!-- Modal for viewing details -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+      <div class="w-full max-w-2xl rounded-2xl border border-border bg-card/95 p-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-bold text-foreground">Submission Details</h2>
+          <button
+            id="close-modal"
+            class="inline-flex items-center justify-center size-9 rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+            aria-label="Close"
+          >
+            <Icon name="x" size={18} class="size-[18px]" />
+          </button>
+        </div>
+        <div id="modal-content" class="space-y-4">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Name</p>
+            <p id="detail-name" class="mt-1 text-base text-foreground"></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</p>
+            <p id="detail-email" class="mt-1 text-base text-primary"></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Date</p>
+            <p id="detail-date" class="mt-1 text-base text-foreground"></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">IP Address</p>
+            <p id="detail-ip" class="mt-1 text-base text-foreground font-mono"></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">User Agent</p>
+            <p id="detail-useragent" class="mt-1 text-sm text-muted-foreground break-all"></p>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</p>
+            <p id="detail-message" class="mt-1 text-base text-foreground whitespace-pre-wrap"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script>
+   // Type definitions
+   interface Submission {
+     id: string;
+     name: string;
+     email: string;
+     message: string;
+     timestamp: string;
+     ip: string;
+     userAgent: string;
+     read: boolean;
+   }
+
+   // Get actual submission data from the page
+   const submissionCards = document.querySelectorAll('.submission-card');
+   const allSubmissions: Submission[] = [];
+   
+   // Extract submission data from the rendered HTML
+   submissionCards.forEach(card => {
+     const id = card.getAttribute('data-id');
+     const read = card.getAttribute('data-read') === 'true';
+     const nameEl = card.querySelector('h3');
+     const emailEl = card.querySelector('p.text-primary');
+     const messageEl = card.querySelector('p.text-muted-foreground.line-clamp-2');
+     const dateEl = card.querySelector('p.text-xs.text-muted-foreground:last-child');
+     
+     if (id && nameEl && emailEl && messageEl && dateEl) {
+       allSubmissions.push({
+         id,
+         name: nameEl.textContent || '',
+         email: emailEl.textContent || '',
+         message: messageEl.textContent || '',
+         timestamp: dateEl.textContent || '',
+         ip: '',
+         userAgent: '',
+         read,
+       });
+     }
+   });
+
+   // Modal elements
+   const modal = document.getElementById('detail-modal');
+   const closeModal = document.getElementById('close-modal');
+   const modalName = document.getElementById('detail-name');
+   const modalEmail = document.getElementById('detail-email');
+   const modalDate = document.getElementById('detail-date');
+   const modalIp = document.getElementById('detail-ip');
+   const modalUseragent = document.getElementById('detail-useragent');
+   const modalMessage = document.getElementById('detail-message');
+
+   // Update stats
+   function updateStats() {
+     const total = document.querySelectorAll('.submission-card').length;
+     const read = document.querySelectorAll('.submission-card[data-read="true"]').length;
+     const unread = total - read;
+
+     const totalEl = document.querySelector('.text-2xl.font-bold.text-foreground');
+     const readEl = document.querySelectorAll('.text-2xl.font-bold.text-foreground')[1];
+     const unreadEl = document.querySelectorAll('.text-2xl.font-bold.text-foreground')[2];
+
+     if (totalEl) totalEl.textContent = String(total);
+     if (readEl) readEl.textContent = String(read);
+     if (unreadEl) unreadEl.textContent = String(unread);
+   }
+
+   // Update submission via API
+   async function updateSubmission(id: string, data: { read?: boolean; action?: string }) {
+     try {
+       const response = await fetch('/api/admin/submissions', {
+         method: 'POST',
+         headers: { 'Content-Type': 'application/json' },
+         body: JSON.stringify({ id, ...data }),
+       });
+
+       if (response.ok) {
+         // Update UI
+         const card = document.querySelector(`[data-id="${id}"]`) as HTMLElement;
+         if (card) {
+           if (data.action === 'delete') {
+             card.remove();
+             updateStats();
+           } else if (data.read !== undefined) {
+             card.setAttribute('data-read', String(data.read));
+             const badge = card.querySelector('span.inline-flex');
+             if (badge) {
+               if (data.read) {
+                 badge.remove();
+               }
+               const icon = card.querySelector('.toggle-read-btn svg');
+               if (icon) {
+                 const isRead = data.read;
+                 icon.outerHTML = isRead
+                   ? '<path d="M1 12s4-8 11-8 11 8 11 8"/><circle cx="12" cy="12" r="3"/>'
+                   : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.06M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 2.16"/><path d="M1 1l22 22"/>';
+               }
+               const btn = card.querySelector('.toggle-read-btn') as HTMLButtonElement;
+               if (btn) {
+                 btn.setAttribute('data-read', String(data.read));
+                 btn.setAttribute('title', data.read ? 'Mark as unread' : 'Mark as read');
+               }
+             }
+             updateStats();
+           }
+         }
+       }
+     } catch (error) {
+       console.error('Update failed:', error);
+     }
+   }
+
+   // Show modal
+   function showModal(submission: Submission) {
+     if (modalName) modalName.textContent = submission.name;
+     if (modalEmail) modalEmail.textContent = submission.email;
+     if (modalDate) modalDate.textContent = new Date(submission.timestamp).toLocaleString();
+     if (modalIp) modalIp.textContent = submission.ip;
+     if (modalUseragent) modalUseragent.textContent = submission.userAgent;
+     if (modalMessage) modalMessage.textContent = submission.message;
+     if (modal) {
+       modal.classList.remove('hidden');
+       modal.classList.add('flex');
+     }
+     
+     // Mark as read when viewing
+     if (!submission.read) {
+       updateSubmission(submission.id, { read: true });
+     }
+   }
+
+   // Close modal
+   function closeModalHandler() {
+     if (modal) {
+       modal.classList.add('hidden');
+       modal.classList.remove('flex');
+     }
+   }
+
+    // Event listeners
+    document.querySelectorAll('.view-details-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const submission = allSubmissions.find(s => s.id === id);
+        if (submission) showModal(submission);
+      });
+    });
+
+    document.querySelectorAll('.toggle-read-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-id');
+        const isRead = btn.getAttribute('data-read') === 'true';
+        updateSubmission(id!, { read: !isRead });
+      });
+    });
+
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        if (confirm('Are you sure you want to delete this submission?')) {
+          const id = btn.getAttribute('data-id');
+          await updateSubmission(id!, { action: 'delete' });
+        }
+      });
+    });
+
+    // Close modal
+    closeModal?.addEventListener('click', closeModalHandler);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModalHandler();
+    });
+
+    // Logout
+    document.getElementById('logout-btn')?.addEventListener('click', async () => {
+      await fetch('/api/admin/logout', { method: 'POST' });
+      window.location.href = '/admin/login';
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+    searchInput?.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      document.querySelectorAll('.submission-card').forEach(card => {
+        const name = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+        const email = card.querySelector('p.text-primary')?.textContent?.toLowerCase() || '';
+        const message = card.querySelector('p.text-muted-foreground.line-clamp-2')?.textContent?.toLowerCase() || '';
+        
+        const matches = name.includes(query) || email.includes(query) || message.includes(query);
+        (card as HTMLElement).style.display = matches ? '' : 'none';
+      });
+    });
+
+    // Filter buttons
+    document.getElementById('filter-all')?.addEventListener('click', () => {
+      document.querySelectorAll('.submission-card').forEach(card => {
+        (card as HTMLElement).style.display = '';
+      });
+      updateFilterButtons('all');
+    });
+
+    document.getElementById('filter-unread')?.addEventListener('click', () => {
+      document.querySelectorAll('.submission-card').forEach(card => {
+        const isRead = card.getAttribute('data-read') === 'true';
+        (card as HTMLElement).style.display = isRead ? 'none' : '';
+      });
+      updateFilterButtons('unread');
+    });
+
+    document.getElementById('filter-read')?.addEventListener('click', () => {
+      document.querySelectorAll('.submission-card').forEach(card => {
+        const isRead = card.getAttribute('data-read') === 'true';
+        (card as HTMLElement).style.display = isRead ? '' : 'none';
+      });
+      updateFilterButtons('read');
+    });
+
+    function updateFilterButtons(active: 'all' | 'unread' | 'read') {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-primary-foreground');
+        btn.classList.add('border', 'border-border', 'text-muted-foreground');
+      });
+      
+      const activeBtn = document.getElementById(`filter-${active}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('border', 'border-border', 'text-muted-foreground');
+        activeBtn.classList.add('bg-primary', 'text-primary-foreground');
+      }
+    }
+  </script>
+</Layout>

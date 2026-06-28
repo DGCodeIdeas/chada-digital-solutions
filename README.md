@@ -9,14 +9,11 @@ Digital Solutions That Scale Businesses — Agency portfolio built with [Astro](
 - **Styling:** Custom CSS (in `public/assets/css/styles.css`)
 - **Icons:** Inline SVG via `Icon.astro` component
 - **Interactivity:** Vanilla JS (`public/assets/js/main.js`)
-- **Deploy:** Netlify (via GitHub Actions CI/CD)
+- **Deploy:** Vercel (via Git integration)
 
 ## Project Structure
 
 ```
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions → Netlify
 ├── public/                     # Static assets (copied to dist as-is)
 │   ├── assets/
 │   │   ├── css/styles.css      # Global styles
@@ -40,17 +37,34 @@ Digital Solutions That Scale Businesses — Agency portfolio built with [Astro](
 │   │   ├── ProjectsModal.astro
 │   │   └── Icon.astro          # SVG icon component
 │   ├── data/
-│   │   └── site.json           # ALL editable content lives here
+│   │   ├── site.json           # ALL editable content lives here
+│   │   ├── settings.json       # Admin settings (email, validation rules)
+│   │   └── submissions.json    # Contact form submissions storage
 │   ├── layouts/
 │   │   └── Layout.astro        # Base HTML shell
+│   ├── lib/
+│   │   └── auth.ts             # Authentication utilities
 │   ├── pages/
 │   │   ├── index.astro         # Homepage
-│   │   └── 404.astro           # Not found page
+│   │   ├── 404.astro           # Not found page
+│   │   ├── showcase.astro      # Showcase page
+│   │   ├── admin/              # Admin dashboard pages
+│   │   │   ├── index.astro     # Dashboard (submissions list)
+│   │   │   ├── login.astro     # Admin login
+│   │   │   └── settings.astro  # Admin settings
+│   │   └── api/                # API endpoints
+│   │       ├── contact.ts      # Contact form submission
+│   │       └── admin/
+│   │           ├── check.ts    # Check authentication status
+│   │           ├── login.ts    # Admin login
+│   │           ├── logout.ts   # Admin logout
+│   │           ├── settings.ts # Get/update admin settings
+│   │           └── submissions.ts # Get/update submissions
 │   ├── types/
 │   │   └── index.ts            # TypeScript interfaces
 │   └── env.d.ts                # Astro client types
+├── vercel.json                 # Vercel deployment configuration
 ├── astro.config.mjs
-├── netlify.toml
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -62,19 +76,19 @@ All editable content is in `src/data/site.json`. Change text, links, images, or 
 
 ### Top-level structure
 
-| Section | What's inside |
-|---------|--------------|
-| `settings` | Site name, URL, logo, OG image, slogan, author, theme color, locale, schema data (address, hours, contact) |
-| `nav` | Navigation links |
-| `hero` | Badge, title, highlight, description, CTAs |
-| `about` | Client type cards (Startups, SMEs, etc.) |
-| `services` | Service cards with icons, descriptions, links |
-| `portfolio` | Featured projects, button text/id |
-| `products` | Product cards with icons, descriptions, links |
-| `contact` | Info, socials, form fields, submit text |
-| `footer` | Tagline, link columns, copyright template |
-| `modal` | All 5 projects for the "View All" modal |
-| `404` | Error code, title, message, button |
+| Section     | What's inside                                                                                              |
+| ----------- | ---------------------------------------------------------------------------------------------------------- |
+| `settings`  | Site name, URL, logo, OG image, slogan, author, theme color, locale, schema data (address, hours, contact) |
+| `nav`       | Navigation links                                                                                           |
+| `hero`      | Badge, title, highlight, description, CTAs                                                                 |
+| `about`     | Client type cards (Startups, SMEs, etc.)                                                                   |
+| `services`  | Service cards with icons, descriptions, links                                                              |
+| `portfolio` | Featured projects, button text/id                                                                          |
+| `products`  | Product cards with icons, descriptions, links                                                              |
+| `contact`   | Info, socials, form fields, submit text                                                                    |
+| `footer`    | Tagline, link columns, copyright template                                                                  |
+| `modal`     | All 5 projects for the "View All" modal                                                                    |
+| `404`       | Error code, title, message, button                                                                         |
 
 ### Example: Change the hero
 
@@ -100,6 +114,42 @@ All editable content is in `src/data/site.json`. Change text, links, images, or 
   }
 }
 ```
+
+## Admin Dashboard
+
+The admin dashboard provides a secure interface for managing contact form submissions.
+
+### Features
+
+- **Dashboard** (`/admin`): View and manage contact form submissions
+  - Mark submissions as read/unread
+  - Delete submissions
+  - Search and filter submissions
+- **Settings** (`/admin/settings`): Configure admin settings
+  - Destination email for notifications
+  - Form validation rules
+  - Notification preferences
+
+### Authentication
+
+The admin dashboard uses secure session-based authentication with bcrypt password hashing.
+
+1. Set the `ADMIN_PASSWORD_HASH` environment variable in your `.env` file
+- **Honeypot spam protection**: Hidden field that bots typically fill
+- **Server-side validation**: Using Zod schema validation
+- **Email notifications**: Sent via Nodemailer (configure SMTP in `.env`)
+- **Data persistence**: Submissions stored in `src/data/submissions.json`
+
+### API Endpoints
+
+| Endpoint                 | Method    | Description                 |
+| ------------------------ | --------- | --------------------------- |
+| `/api/contact`           | POST      | Submit contact form         |
+| `/api/admin/login`       | POST      | Admin login                 |
+| `/api/admin/logout`      | POST      | Admin logout                |
+| `/api/admin/check`       | GET       | Check authentication status |
+| `/api/admin/submissions` | GET, POST | Get/update submissions      |
+| `/api/admin/settings`    | GET, POST | Get/update admin settings   |
 
 ## Path Aliases
 
@@ -128,6 +178,29 @@ npm run build
 npm run preview
 ```
 
+## Environment Configuration
+
+Create a `.env` file based on `.env.example`:
+
+```bash
+# Copy the example file
+cp .env.example .env
+
+# Edit with your values
+```
+
+### Required Environment Variables
+
+| Variable              | Description                                       |
+| --------------------- | ------------------------------------------------- |
+| `ADMIN_EMAIL`         | Email address to receive contact form submissions |
+| `ADMIN_PASSWORD_HASH` | Bcrypt hash of admin password                     |
+| `SESSION_SECRET`      | Secret for signing session cookies                |
+| `EMAIL_HOST`          | SMTP server host                                  |
+| `EMAIL_PORT`          | SMTP server port                                  |
+| `EMAIL_USER`          | SMTP authentication username                      |
+| `EMAIL_PASS`          | SMTP authentication password                      |
+
 ## Deploy to Netlify via GitHub
 
 ### Step 1: Create a Netlify site
@@ -141,9 +214,22 @@ npm run preview
    - Publish directory: `dist`
 6. Click **Deploy site**
 
-### Step 2: Auto-deploy on push (GitHub Actions)
+### Step 2: Configure Environment Variables
+
+In your Netlify site settings, go to **Site settings → Build & deploy → Environment → Environment variables** and add:
+
+- `ADMIN_EMAIL`
+- `ADMIN_PASSWORD_HASH`
+- `SESSION_SECRET`
+- `EMAIL_HOST`
+- `EMAIL_PORT`
+- `EMAIL_USER`
+- `EMAIL_PASS`
+
+### Step 3: Auto-deploy on push (GitHub Actions)
 
 The repo includes `.github/workflows/deploy.yml` which:
+
 - Builds on every push to `main`/`master`
 - Deploys production builds automatically
 - Creates preview deploys for Pull Requests
@@ -155,7 +241,7 @@ In your GitHub repo, go to **Settings → Secrets and variables → Actions → 
 1. `NETLIFY_AUTH_TOKEN` — Get from [Netlify User Settings → Applications](https://app.netlify.com/user/applications/personal)
 2. `NETLIFY_SITE_ID` — Get from your Netlify site settings → General → Site details → Site ID
 
-### Step 3: Push to GitHub
+### Step 4: Push to GitHub
 
 ```bash
 git init
@@ -171,6 +257,7 @@ Netlify will auto-deploy on every push. Pull Requests get preview URLs via GitHu
 ### Alternative: Netlify Git integration (no Actions)
 
 If you prefer Netlify's native Git integration instead of GitHub Actions:
+
 1. In Netlify site settings → Build & deploy → Continuous deployment
 2. Select your GitHub repo
 3. Netlify builds and deploys automatically on every push
@@ -190,6 +277,7 @@ import Dashboard from '@/components/Dashboard';
 ```
 
 Install React first:
+
 ```bash
 npm install @astrojs/react react react-dom
 ```

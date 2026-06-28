@@ -73,9 +73,9 @@
     "description": "A selection of recent work across industries and use cases.",
     "button": { "href": "#", "text": "View All Projects", "id": "view-all-projects-btn" },
     "featured": [
-      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website" },
-      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation" },
-      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform" }
+      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website", "category": "Construction" },
+      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation", "category": "SaaS" },
+      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform", "category": "Recruitment" }
     ]
   },
   "products": {
@@ -154,11 +154,11 @@
     "badge": "Our Work",
     "title": "All Projects",
     "projects": [
-      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website" },
-      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation" },
-      { "href": "/demos/noir", "alt": "NOIR", "image": "/assets/images/project-noir.jpg", "title": "NOIR", "description": "E-Commerce — Fashion Store" },
-      { "href": "/demos/elysian", "alt": "ELYSIAN", "image": "/assets/images/project-elysian.jpg", "title": "ELYSIAN", "description": "Booking — Hotel & Spa" },
-      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform" }
+      { "href": "/demos/sterling-vale", "alt": "Sterling & Vale", "image": "/assets/images/project-sterling.jpg", "title": "Sterling & Vale", "description": "Construction Firm — Corporate Website", "category": "Construction" },
+      { "href": "/demos/apexflow", "alt": "ApexFlow", "image": "/assets/images/project-apexflow.jpg", "title": "ApexFlow", "description": "SaaS Platform — AI Automation", "category": "SaaS" },
+      { "href": "/demos/noir", "alt": "NOIR", "image": "/assets/images/project-noir.jpg", "title": "NOIR", "description": "E-Commerce — Fashion Store", "category": "E-commerce" },
+      { "href": "/demos/elysian", "alt": "ELYSIAN", "image": "/assets/images/project-elysian.jpg", "title": "ELYSIAN", "description": "Booking — Hotel & Spa", "category": "SaaS" },
+      { "href": "/demos/hirebase", "alt": "HIREBASE", "image": "/assets/images/project-hirebase.jpg", "title": "HIREBASE", "description": "Recruitment — Job Board Platform", "category": "Recruitment" }
     ]
   },
   "404": {

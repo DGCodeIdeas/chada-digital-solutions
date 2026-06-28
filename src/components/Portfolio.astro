@@ -13,10 +13,10 @@ const { portfolio } = siteData;
         <h2 class="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl">{portfolio.title} <span class="text-primary">{portfolio.titleHighlight}</span></h2>
         <p class="mt-4 max-w-xl text-base text-muted-foreground">{portfolio.description}</p>
       </div>
-      <button id={portfolio.button.id} class="inline-flex items-center gap-2 rounded-full border border-primary/40 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-primary transition-colors hover:bg-primary/10">
+      <a href="/showcase" class="inline-flex items-center gap-2 rounded-full border border-primary/40 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-primary transition-colors hover:bg-primary/10">
         {portfolio.button.text}
         <Icon name="arrow-right" size={14} class="size-3.5" />
-      </button>
+      </a>
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {portfolio.featured.map((project) => (

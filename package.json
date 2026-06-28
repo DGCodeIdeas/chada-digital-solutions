@@ -8,6 +8,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "node scripts/build.js",
+    "vercel-build": "astro build",
+    "vercel": "vercel",
+    "vercel-dev": "vercel dev",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -18,8 +21,11 @@
     "@radix-ui/react-dialog": "^1.1.17",
     "alpinejs": "^3.14.0",
     "astro": "^7.0.2",
+    "bcryptjs": "^2.4.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.0",
+    "nodemailer": "^9.0.1",
+    "rate-limiter-flexible": "^11.2.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-hook-form": "^7.80.0",
@@ -28,6 +34,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/nodemailer": "^8.0.1",
     "typescript": "^5.9.3"
   },
   "engines": {

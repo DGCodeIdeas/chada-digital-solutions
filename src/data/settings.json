@@ -1,0 +1,31 @@
+{
+  "destinationEmail": "hello@chadadigital.com",
+  "emailProvider": "smtp",
+  "zohoMail": {
+    "host": "smtp.zoho.com",
+    "port": 587,
+    "user": "",
+    "fromEmail": ""
+  },
+  "validationRules": {
+    "name": {
+      "min": 2,
+      "max": 100,
+      "required": true
+    },
+    "email": {
+      "min": 5,
+      "max": 255,
+      "required": true
+    },
+    "message": {
+      "min": 10,
+      "max": 2000,
+      "required": true
+    }
+  },
+  "notifications": {
+    "emailOnNewSubmission": true,
+    "dailySummary": false
+  }
+}
