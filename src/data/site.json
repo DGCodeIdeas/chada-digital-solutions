@@ -84,7 +84,7 @@
     "titleHighlight": "Work Easier",
     "description": "Pre-built solutions you can deploy immediately to solve common business challenges.",
     "products": [
-      { "icon": "file-text", "title": "QuoteGen", "description": "Instant proposal and quotation generator for service businesses.", "link": { "href": "#contact", "text": "Get QuoteGen" } },
+      { "icon": "file-text", "title": "QuoteGen", "description": "Instant proposal and quotation generator for service businesses.", "link": { "href": "/quotegen", "text": "Get QuoteGen" } },
       { "icon": "calendar-check", "title": "BookingFlow", "description": "Appointment and booking management system for clinics, salons, and consultants.", "link": { "href": "#contact", "text": "Get BookingFlow" } },
       { "icon": "message-square", "title": "ChatDesk", "description": "AI-powered customer support chatbot that integrates with your website and CRM.", "link": { "href": "#contact", "text": "Get ChatDesk" } },
       { "icon": "bar-chart-3", "title": "InsightDash", "description": "Business analytics dashboard that connects your data sources for real-time insights.", "link": { "href": "#contact", "text": "Get InsightDash" } }

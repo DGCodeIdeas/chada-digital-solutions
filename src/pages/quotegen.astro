@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import QuoteGenerator from '@/components/QuoteGenerator';
+---
+
+<Layout title="QuoteGen — Professional Quotation Generator | Chada Digital">
+  <Header />
+  <main class="pt-24 pb-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <div class="mb-12 text-center">
+        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Tool</span>
+        <h1 class="mt-4 font-display text-4xl font-bold tracking-tight md:text-6xl">Quote<span class="text-primary">Gen</span></h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">Generate professional quotes and proposals for your service business in seconds.</p>
+      </div>
+
+      <QuoteGenerator client:load />
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @media print {
+    :global(header), :global(footer) {
+      display: none !important;
+    }
+    main {
+      padding: 0 !important;
+    }
+  }
+</style>

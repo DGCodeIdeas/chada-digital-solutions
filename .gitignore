@@ -5,3 +5,9 @@ dist/
 .env.local
 .DS_Store
 *.log
+# Build outputs
+dist/
+.vercel/
+.astro/
+node_modules/
+bun.lock
