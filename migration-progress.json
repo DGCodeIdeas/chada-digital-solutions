@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-07-01",
+  "phases": {
+    "phase1": {
+      "status": "initialized",
+      "files": []
+    },
+    "phase2": {
+      "status": "pending",
+      "files": []
+    },
+    "phase3": {
+      "status": "pending",
+      "files": []
+    },
+    "phase4": {
+      "status": "pending",
+      "files": []
+    },
+    "phase5": {
+      "status": "pending",
+      "files": []
+    }
+  },
+  "completedFiles": [],
+  "pendingFiles": []
+}
