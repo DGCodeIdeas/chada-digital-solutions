@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing — ApexFlow</title>
+  <meta name="description" content="Simple, transparent pricing for AI-powered business automation. Start free, scale as you grow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="pricing-page">
+
+  <!-- Navigation -->
+  <header class="nav-header" id="nav-header">
+    <div class="nav-container">
+      <a href="../" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L28 9v14L16 30 4 23V9l12-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M16 8l8 4.5v9L16 26l-8-4.5v-9L16 8z" fill="currentColor" opacity="0.3"/>
+            <circle cx="16" cy="17" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="logo-text">ApexFlow</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../#features">Features</a>
+        <a href="../#how-it-works">How It Works</a>
+        <a href="./">Pricing</a>
+        <a href="../dashboard/">Dashboard</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../login/" class="btn btn-ghost">Sign In</a>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="section-badge">Pricing</div>
+      <h1 class="hero-title">Simple, Transparent <span class="gradient-text">Pricing</span></h1>
+      <p class="hero-subtitle">Start free and scale as you grow. No hidden fees, no surprises.</p>
+      <div class="pricing-toggle">
+        <span class="toggle-label active" id="monthly-label">Monthly</span>
+        <div class="toggle-switch" id="billing-toggle"></div>
+        <span class="toggle-label" id="yearly-label">Yearly <span style="color:var(--success);font-size:0.75rem;">-20%</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Grid -->
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Starter</div>
+      <div class="pricing-desc">Perfect for small teams getting started with AI automation.</div>
+      <div class="pricing-price" id="starter-price">$29<span>/month</span></div>
+      <div class="pricing-period">Billed monthly</div>
+      <ul class="pricing-features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          500 AI conversations/month
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          2 team members
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Basic lead scoring
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Email support
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          1 workflow
+        </li>
+      </ul>
+      <a href="#" class="btn btn-ghost">Start Free Trial</a>
+    </div>
+
+    <div class="pricing-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="pricing-name">Professional</div>
+      <div class="pricing-desc">For growing teams that need advanced automation and insights.</div>
+      <div class="pricing-price" id="pro-price">$79<span>/month</span></div>
+      <div class="pricing-period">Billed monthly</div>
+      <ul class="pricing-features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Unlimited AI conversations
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          10 team members
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Advanced AI lead scoring
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Priority support
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Unlimited workflows
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Analytics dashboard
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          CRM integrations
+        </li>
+      </ul>
+      <a href="#" class="btn btn-primary">Start Free Trial</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-name">Enterprise</div>
+      <div class="pricing-desc">Custom solutions for large organizations with advanced needs.</div>
+      <div class="pricing-price" id="enterprise-price">$199<span>/month</span></div>
+      <div class="pricing-period">Billed monthly</div>
+      <ul class="pricing-features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Everything in Pro
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Unlimited team members
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Custom AI training
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Dedicated account manager
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          SLA guarantee
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Custom integrations
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          On-premise option
+        </li>
+      </ul>
+      <a href="#" class="btn btn-ghost">Contact Sales</a>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section style="padding: 60px 24px 100px;">
+    <div class="section-container" style="max-width: 800px;">
+      <div class="section-header" style="margin-bottom: 48px;">
+        <div class="section-badge">FAQ</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 600;">Can I try ApexFlow before committing?</h3>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <p class="faq-answer" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 12px; line-height: 1.6; display: none;">Absolutely! Every plan comes with a 14-day free trial. No credit card required. You can explore all features and only upgrade when you're ready.</p>
+        </div>
+        <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 600;">What happens when I exceed my conversation limit?</h3>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <p class="faq-answer" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 12px; line-height: 1.6; display: none;">We'll notify you when you're at 80% of your limit. You can either upgrade your plan or purchase additional conversation packs. We never stop your automations unexpectedly.</p>
+        </div>
+        <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 600;">Can I change my plan later?</h3>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <p class="faq-answer" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 12px; line-height: 1.6; display: none;">Yes, you can upgrade or downgrade your plan at any time. When upgrading, you'll get immediate access to new features. When downgrading, changes take effect at the next billing cycle.</p>
+        </div>
+        <div class="faq-item" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; cursor: pointer; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1rem; font-weight: 600;">Is my data secure?</h3>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.3s ease;"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <p class="faq-answer" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 12px; line-height: 1.6; display: none;">Security is our top priority. We're SOC 2 Type II certified, use end-to-end encryption, and never train AI models on your data. Your information belongs to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L28 9v14L16 30 4 23V9l12-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M16 8l8 4.5v9L16 26l-8-4.5v-9L16 8z" fill="currentColor" opacity="0.3"/>
+                <circle cx="16" cy="17" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <span class="logo-text">ApexFlow</span>
+          </a>
+          <p class="footer-desc">AI-powered business automation that scales with you. Built for modern teams.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Product</h4>
+          <a href="../#features">Features</a>
+          <a href="./">Pricing</a>
+          <a href="../dashboard/">Dashboard</a>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">Help Center</a>
+          <a href="#">API Reference</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> ApexFlow. Built by <a href="https://chadadigital.com">Chada Digital</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    (function() {
+      // Pricing toggle
+      const toggle = document.getElementById('billing-toggle');
+      const monthlyLabel = document.getElementById('monthly-label');
+      const yearlyLabel = document.getElementById('yearly-label');
+      const starterPrice = document.getElementById('starter-price');
+      const proPrice = document.getElementById('pro-price');
+      const enterprisePrice = document.getElementById('enterprise-price');
+      const periods = document.querySelectorAll('.pricing-period');
+
+      let isYearly = false;
+
+      toggle.addEventListener('click', () => {
+        isYearly = !isYearly;
+        toggle.classList.toggle('yearly', isYearly);
+        monthlyLabel.classList.toggle('active', !isYearly);
+        yearlyLabel.classList.toggle('active', isYearly);
+
+        if (isYearly) {
+          starterPrice.innerHTML = '$23<span>/month</span>';
+          proPrice.innerHTML = '$63<span>/month</span>';
+          enterprisePrice.innerHTML = '$159<span>/month</span>';
+          periods.forEach(p => p.textContent = 'Billed yearly (save 20%)');
+        } else {
+          starterPrice.innerHTML = '$29<span>/month</span>';
+          proPrice.innerHTML = '$79<span>/month</span>';
+          enterprisePrice.innerHTML = '$199<span>/month</span>';
+          periods.forEach(p => p.textContent = 'Billed monthly');
+        }
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const answer = item.querySelector('.faq-answer');
+          const icon = item.querySelector('.faq-icon');
+          const isOpen = answer.style.display === 'block';
+
+          // Close all
+          document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+          document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+          if (!isOpen) {
+            answer.style.display = 'block';
+            icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

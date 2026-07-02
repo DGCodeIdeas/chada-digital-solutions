@@ -6,12 +6,6 @@
     "PUBLIC_SITE_URL": "https://www.chadadigital.com",
     "VERCEL_ENV": "production"
   },
-  "rewrites": [
-    {
-      "source": "/demos/:path*",
-      "destination": "/:path*"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -48,7 +42,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+          "value": "default-src 'self'; img-src 'self' https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
         }
       ]
     }
