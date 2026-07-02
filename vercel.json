@@ -6,6 +6,12 @@
     "PUBLIC_SITE_URL": "https://www.chadadigital.com",
     "VERCEL_ENV": "production"
   },
+  "rewrites": [
+    {
+      "source": "/demos/:path*/assets/:file",
+      "destination": "/demos/:path*/assets/:file"
+    }
+  ],
   "headers": [
     {
       "source": "/demos/(.*)\\.(css|js|woff2|woff|ttf|eot)$",
